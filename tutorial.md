@@ -83,12 +83,12 @@ times until finally I sat down with a pen and paper and wrote down exactly what 
 was that kept simultaneously bothering me about and attracting me to Rust. 
 
 What I arrived at was something that will likely not be a surprise to you: Rust 
-was frustrating to learn because it required a different mental model when 
-approaching programming problems. I couldn't do what I did when going from C to 
-C++, or C++ to PHP, or C++ to Java, or any of the other thirty or so languages 
-I am familiar with, which was to just fit whatever syntactical differences the 
-new language had into my existing framework for what a language should do and 
-how it should feel. Rust required, for the most part, a clean slate. 
+was frustrating to learn because it required a different mental model when approaching 
+programming problems. I couldn't do what I did when going from C to C++, or C++ to PHP, 
+or C++ to Java, or any of the other thirty or so languages I am familiar with, which 
+was to just fit whatever syntactical differences the new language had into my 
+existing framework for what a language should do and how it should feel. Rust 
+required, for the most part, a clean slate. 
 
 As a tutorial author, I wanted to write an introductory tutorial on Rust to get 
 developers in other languages up and running as fast as possible--but I didn't 
@@ -218,12 +218,10 @@ That being said, this course *is not* meant to get you up and running with Rust
 per se; the problem that I have seen with newcomers to Rust is that there is 
 just too much to learn too soon, and there's not enough payoff in the beginning 
 after "Hello, world!" to justify sticking around. In my humble opinion, this is 
-because most Rust tutorials aren't teaching people how fun Rust is for building 
-tools, and instead focusing too much on how idiosyncratic the unique features 
-of Rust are. Those tutorials are still important, but I think other 
-tutorials--ones that focus on building something, even if it's not that 
-complicated--are important, too, and serve to compliment the still young (as of 
-2019) ecosystem of Rust tutorials online.
+because most Rust tutorials aren't teaching people how fun Rust is for building tools, 
+and instead focusing too much on how idiosyncratic the unique features of Rust are. 
+Those tutorials are still important, but I think other tutorials--ones that focus on building something, even if it's not that complicated--are important, too, and serve to 
+compliment the still young (as of 2019) ecosystem of Rust tutorials online.
 
 {{% /deepdive %}}
 
@@ -300,8 +298,7 @@ project was scaffolded correctly:
 
 ![](/images/tinymd1.png)
 
-With our new Rust project started, let's go ahead and open the project's root 
-folder. 
+With our new Rust project started, let's go ahead and open the project's root folder. 
 
 Use your favorite editor to open up the new folder named `tinymd`. 
 If you're using VS Code like me, you can usually type:
@@ -404,8 +401,7 @@ for us, by executing the appropriate `.exe` file based on the release target.
 If you see "Hello, world!" in your terminal, then congratulations: you have 
 built your first Rust program!
 
-In the next section, we'll dive into the Rust language and start customizing 
-our markdown compiler to make it feel like an actual program.
+In the next section, we'll dive into the Rust language and start customizing our markdown compiler to make it feel like an actual program.
 
 {{<checkpoint 
         chapter="chapter-1"
@@ -711,11 +707,9 @@ text that usually says what the program is, who wrote it, and how to use it. We
 have wrapped up this banner in the `usage()` function. By the end of the last 
 chapter, we were outputting the version of our program. 
 
-In this chapter, we will improve the banner by pulling data from our project's 
-manifest file (`Cargo.toml`) instead of hard-coding things like the version 
-number into `main.rs`. To do this, we need to understand how Rust deals with 
-strings and, perhaps most importantly, what makes Rust wholly different from 
-many languages you might already be used to: *ownership*. 
+In this chapter, we will improve the banner by pulling data from our project's manifest file (`Cargo.toml`) instead of hard-coding things like the version number into `main.rs`. To do this, we need to understand how Rust deals with strings and, 
+perhaps most importantly, what makes Rust wholly different from many languages 
+you might already be used to: *ownership*. 
 
 ## Creating a string variable in Rust
 
@@ -726,14 +720,11 @@ Rust's case, are guaranteed to be valid UTF-8. That being said, every language
 has a way to implement a collection of bytes in one of two ways: *heap-allocated* 
 strings, which are dynamically created at runtime and during the application's 
 lifecycle, and *stack-allocated* strings, which are allocated at compile-time. 
-Rust is going to make us get real familiar with both. In most other languages, 
-heap-allocated strings are the default, with `const` and `static` 
+Rust is going to make us get real familiar with both. 
 
 In Rust, there are two types of string variables: `String`, which is allocated 
-on the heap, and `&str` (called a *string slice*), which is allocated on the 
-stack. Since stack-allocated variables must have a known size at compile time, 
-only `String` variables retain ownership over their addresses in memory when 
-they're changed.
+on the heap, and `&str` (called a *string slice*), which may be stack or heap 
+allocated depending on what it points to. Since stack-allocated variables must have a known size at compile time, only `String` variables retain ownership over their addresses in memory when they're changed. 
 
 A `String` is a akin to a vector. It can grow, shrink, `push()`, `pop()`, 
 and it is automatically freed when the variable goes out of scope. Further, a 
@@ -743,8 +734,8 @@ memory where the bytes are stored.
 A `&str`, on the other hand, is a *string slice*. It does not own any buffers 
 in memory, but rather, it *borrows* whatever is at an address from a different 
 owner. You can think of a `&str` as pointer or **borrowed reference** to a 
-string owned by a different variable or the application itself (i.e., in stack 
-memory). 
+string owned by a different variable or the application itself. For this reason, 
+string slices are immutable. 
 
 So which one would we use, and when?
 
@@ -756,10 +747,9 @@ the inner content, then the closing tag. Using a string slice wouldn't make
 sense here since the value of the `String` will change as we add ("push") data 
 into it. 
 
-Think of a `&str` as a window into another string--even if that string is not 
-created by you, but by the application instead. String slices that point to a 
-string that we declare are technically considered `static` string slices, since 
-they point to strings in memory that are created on the stack. 
+Think of a `&str` as a window into another string, whether that string is a 
+string literal (in which case the string slice would be static and stack-allocated) 
+or a `String` (in which case the string slice would be heap-allocated).
 
 Let's see how both of these string types can be used effectively by modifying 
 our `the_version` variable to be a `&str`--and while we're at it, let's change 
@@ -796,10 +786,7 @@ Here we omit the `: &str` part of the declaration because Rust will infer that,
 since `"0.1"` is a string literal, `the_version` needs to be a `&str`. 
 
 When Rust goes to compile our program, the string `"0.1"` is compiled into the 
-program as a string literal (essentially a static string) and thus gets 
-instantiated in stack memory, and `the_version` (which is allocated dynamically 
-at runtime in heap memory) *borrows the value* at the address in stack memory 
-where Rust stored it.
+program as a string literal (essentially a static string) and thus gets instantiated in stack memory, and `the_version` (which is allocated dynamically at runtime in heap memory) *borrows the value* at the address in stack memory where Rust stored it.
 
 Our program will build and run just fine as long as we comment out our old 
 `get_version()` function. Ensure your `main.rs` looks like this now:
@@ -853,8 +840,7 @@ authors = ["Jesse Lawson <jesselawson@protonmail.com>"]
 edition = "2018"
 {{</codecaption>}}
 
-Many other languages use manifest files like Rust's `Cargo.toml`, such as 
-Node (`package.json`) and Ruby (`Gemfile`). The information here is fairly 
+Many other languages use manifest files like Rust's `Cargo.toml`, such as Node (`package.json`) and Ruby (`Gemfile`). The information here is fairly 
 straight-forward. These variables in here are sometimes called *environment* 
 variables. Rust will provide the key values from the manifest file as environment 
 variables for us during compilation.
@@ -1474,13 +1460,11 @@ The following table illustrates all the possible ways someone could invoke the
 Essentially, any command that does not have a single valid markdown file as its 
 sole argument will just call `usage()`, which outputs the banner. 
 
-Now that we know all the ways our took can be invoked, we are ready to think 
-about how we want our tool to parse a Markdown file. 
+Now that we know all the ways our took can be invoked, we are ready to think about how we want our tool to parse a Markdown file. 
 
 To define a tool that parses Markdown, we need to know what a Markdown file looks 
 like. For the sake of this tutorial, we are only concerned with two types of 
-Markdown syntax: *headings* and *paragraphs*. A heading in Markdown is denoted 
-with a `#`. Paragraphs are plain text with no special characters at the start of 
+Markdown syntax: *headings* and *paragraphs*. A heading in Markdown is denoted with a `#`. Paragraphs are plain text with no special characters at the start of 
 the line. 
 
 For example, let's say we have a markdown file called `favorite_writers.md` with 
@@ -1772,8 +1756,7 @@ tinymd (v0.1.0), A tiny markdown compiler based on Jesse's tutorials.
 Neat!
 
 In this chapter, we developed confidence in our ability to describe how a Markdown 
-compiler works, and learned how to instantiate a vector by reading and parsing 
-command-line arguments in Rust. We also got a little familiar with `match`, and 
+compiler works, and learned how to instantiate a vector by reading and parsing command-line arguments in Rust. We also got a little familiar with `match`, and 
 passing an argument to a function. In the next chapter, we are going to implement 
 our Markdown compiler logic and open a file, read it line-by-line, translate it 
 into HTML, and write the HTML to a new file. It's going to be fun!
@@ -1834,9 +1817,7 @@ Jesse likes to drink coffee in the mornings and iced tea throughout the day. Som
 
 # Jesse's favorite hobbies
 
-Jesse likes to write about computer programming and game design, and when he is 
-not hunched over a computer, you can find him out on a run and listening to a 
-podcast or the serenity of mother nature. 
+Jesse likes to write about computer programming and game design, and when he is not hunched over a computer, you can find him out on a run and listening to a podcast or the serenity of mother nature. 
  
  
 {{</codecaption>}}
@@ -2243,9 +2224,8 @@ return the first character of the line, but rather, an `Option` object.
 Just like `Result`, `Option` is made up of two pieces--but they're called `Some()` 
 and `None()` instead of `Result`'s `Ok()` and `Err()`. 
 
-When you pop and element from a vector in Rust, you will either get *some* value 
-or *none*. We really only care if we are getting *some* character that looks 
-like `#`--or, put another way, `Some('#')`.
+When you pop and element from a vector in Rust, you will either get *some* value or *none*. We really only care if we are getting *some* character that looks like `#`--
+or, put another way, `Some('#')`.
 
 The `match` block has the same kind of syntax that you may recall from before, 
 this time with the default case (`_`) and `Some("#")`:
@@ -2517,8 +2497,7 @@ for t in &tokens {
 ```
 
 You can also download all the code up to this point, including the above 
-for-loop that just prints `tokens` straight to the console, from 
-[this gist link](https://gist.github.com/jesselawson/f2833e1aa02ed9320792291bbd2a1457).
+for-loop that just prints `tokens` straight to the console, from [this gist link](https://gist.github.com/jesselawson/f2833e1aa02ed9320792291bbd2a1457).
 
 {{% /deepdive %}}
 
@@ -2800,8 +2779,7 @@ great place to start.
 
 * At the end of the `match first_char.pop()` block, we have to repeat ourselves 
   by checking whether the `_ptag` or `_htag` are open. How could you encapsulate 
-  this logic in a function to better adhere to the 
-  [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)?
+  this logic in a function to better adhere to the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)?
 
 * How could you add in some other HTML tags at the top of your output file, like 
   a `<style>` tag or even a link to a CSS file *before* you iterate over each 
@@ -2826,12 +2804,10 @@ great place to start.
 
 Feel free to reach out in whatever way works for you:
 
-* <strong>Send me an email!</strong> {{<myemail>}} (or [this](https://forms.gle/VbDtvbep1z276Ei68)
- Google form if you don't want me to know your email)
+* <strong>Clone the repo!</strong> Feel free to [clone this repo](https://github.com/jesselawson/rust-tiny-markdown-compiler-tutorial), make some changes, and submit a PR. 
+
+* <strong>Send me an email!</strong> {{<myemail>}} (or [this](https://forms.gle/VbDtvbep1z276Ei68) Google form if you don't want me to know your email)
 
 * <strong>Stalk me on Reddit!</strong> [/u/codeonatypewriter](https://www.reddit.com/u/codeonatypewriter)
 
 * <strong>[☕ buy me a coffee!](https://www.buymeacoffee.com/jesselawson)</strong>
-
-
-
