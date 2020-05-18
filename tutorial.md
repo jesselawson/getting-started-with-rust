@@ -505,7 +505,7 @@ a simple value that we can write to the console window.
 
 ## Creating a function with a return value in Rust
 
-In this section, we're going to create a function called `get_function()` that
+In this section, we're going to create a function called `get_version()` that
 will return some arbitrary version number of our tool. 
 
 We saw earlier that a function with no arguments and no return value is written 
@@ -557,7 +557,7 @@ a value. Since a function is a block of code, functions evaluate to a value,
 too. 
 
 Notice that we only need the semi-colon when we use the `return` keyword; 
-the number 1001 by itself is the value that the block evaluates to, while the 
+the number 1000 by itself is the value that the block evaluates to, while the 
 `return 1000;` is a statement--and statements end with a semicolon.
 
 The accepted way in the Rust community (and in most expression-based languages) 
