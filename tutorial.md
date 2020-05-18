@@ -799,7 +799,7 @@ Our program will build and run just fine as long as we comment out our old
 }*/
 
 fn usage() {
-    let the_version = "1.0";
+    let the_version = "0.1";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
     println!("The Version: {}", the_version);
 }
@@ -822,7 +822,7 @@ Your output should look like this:
 ```shell
 $ cargo run -q
 tinymd, a markdown compiler written by <YOUR NAME>
-The Version: 1.0
+The Version: 0.1
 ```
 
 Though it runs fine, we haven't improved anything by baking in a string version 
@@ -987,8 +987,8 @@ let's try to modify the value of `the_version` after declaring it:
 
 ```rust
 fn usage() {
-    let the_version = "1.0";
-    the_version = "2.0";
+    let the_version = "0.1";
+    the_version = "0.2";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
     println!("The Version: {}", the_version);
 }
@@ -1009,7 +1009,7 @@ $ cargo build
 warning: value assigned to `the_version` is never read
   --> src\main.rs:36:9
    |
-36 |     let the_version = "1.0";
+36 |     let the_version = "0.1";
    |         ^^^^^^^^^^^
    |
    = note: #[warn(unused_assignments)] on by default
@@ -1018,12 +1018,12 @@ warning: value assigned to `the_version` is never read
 error[E0384]: cannot assign twice to immutable variable `the_version`
   --> src\main.rs:37:5
    |
-36 |     let the_version = "1.0";
+36 |     let the_version = "0.1";
    |         -----------
    |         |
    |         first assignment to `the_version`
    |         help: make this binding mutable: `mut the_version`
-37 |     the_version = "2.0";
+37 |     the_version = "0.2";
    |     ^^^^^^^^^^^^^^^^^^^ cannot assign twice to immutable variable
 
 error: aborting due to previous error
@@ -1073,8 +1073,8 @@ of `the_version`:
 
 ```rust
 fn usage() {
-    let mut the_version = "1.0";
-    the_version = "2.0";
+    let mut the_version = "0.1";
+    the_version = "0.2";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
     println!("The Version: {}", the_version);
 }
@@ -1264,22 +1264,14 @@ We are going to call `get_title()` from the `print_short_banner()` function
 by using the `println!()` macro. Can you guess how we will do that?
 
 <details>
-<summary>Two Possible Solutions</summary>
+<summary>One Possible Solution</summary>
 
-You can either use the string substitution characters `{}` (just like how you 
+You can use the string substitution characters `{}` (just like how you 
 might use `%s` in C's `printf`), like this:
 
 ```rust
 fn print_short_banner() {
   println!("{}", get_title());
-}
-```
-
-Or, you can just call `get_title()` as `println!()`'s only argument, like this:
-
-```rust
-fn print_short_banner() {
-  println!(get_title());
 }
 ```
 </details>
@@ -1698,6 +1690,9 @@ fn parse_markdown_file(_filename: &str) {
 }
 ```
 
+I'm using an underscore (`_`) here in the filename variable to remind me that 
+this is coming from a function parameter. Feel free to name it whatever you want. 
+
 Let's also go ahead and put some placeholder text in there to help us see when 
 this function is called:
 
@@ -1904,20 +1899,18 @@ What the `.expect()` does is tell Rust to unwrap the return value and pass along
 the `Ok()`--except upon failure, in which case we output the string argument to 
 except as a kind of error message. 
 
-To help explain this, the following two blocks of code will produce the same 
-result for the variable `file`.
-
-Condensed:
+So when we write something like this:
 ```rust
 let file = File::open(&input_filename).expect("Couldn't open file");
 ```
 
-Verbose:
+We're basically writing a less verbose (and, as you can see, less diagnostically 
+helpful) version of this:
 ```rust
 use std::error::Error;
 // ...
 let file = match File::open(&input_filename) {
-  Err(err) => panic!("Couldn't open: {}", err.description()),
+  Err(err) => panic!("Couldn't open file: {}", err.description()),
   Ok(value) => value,
 };
 ```
@@ -2125,8 +2118,8 @@ let line_contents = match line {
 
 Notice how we would have to match each of the `Result` elements (`Ok()` and 
 `Err()`). We don't really need all this because, frankly, it's a bit overkill 
-for just reading the contents of a line. So instead of manually unwrapping the 
-`Result` object, we can just use Rust's `.unwrap()` method:
+for just reading the contents of a line in a toy markdown compiler. So instead 
+of manually unwrapping the `Result` object, we can just use Rust's `.unwrap()` method:
 
 ```rust
 // Verbose way:
@@ -2136,18 +2129,16 @@ for just reading the contents of a line. So instead of manually unwrapping the
 };*/
 
 // Condensed way:
-let line_contents = line.unwrap().to_string();
+let line_contents = line.unwrap();
 ```
-
-Much cleaner! We "unwrap" the line and then convert it "to" a "string."
 
 Let's look at what we have so far for the for-loop, complete with some comments:
 
 ```rust
 // Loop through the reader lines
 for line in reader.lines() {
-  // For each line, unwrap it and make it a string
-  let line_contents = line.unwrap().to_string();
+  // For each line, unwrap it
+  let line_contents = line.unwrap();
 ```
 
 You're doing great! Get a drink of water, stretch your back and legs, and come 
@@ -2351,7 +2342,7 @@ We want `line_contents` minus the first two characters. Here's why:
 # Sometext
 ^^
 ||
-|+--- This space is unecessary for <h1>Sometext</h1>
+|+--- This space is unnecessary for <h1>Sometext</h1>
 |
 +--- This character converts to <h1>
 ```
@@ -2601,15 +2592,14 @@ unpacking the Result object, though, we're going to continue to use
 `.expect()`:
 
 ```rust
-let mut outfile = File::create(output_filename.to_string())
+let mut outfile = File::create(output_filename)
   .expect("[ ERROR ] Could not create output file!");
 ```
 
 By this point, I hope you're comfortable reading the above code. We're creating 
 a mutable variable `outfile` equal to the result of `File::create()`, into which 
-we pass the `output_filename` formatted as a string (hence the `.to_string()` on 
-the end). The call to `.expect()` will trigger only if there was an error 
-creating the file. 
+we pass the `output_filename`. The call to `.expect()` will trigger only if 
+there was an error creating the file. 
 
 With the file created, we are FINALLY ready to loop through `tokens` and write 
 each element to the output file. Assuming a successfully created `outfile`, 
@@ -2748,30 +2738,37 @@ The development version has debug symbols that Cargo uses to help you during
 development, which is one reason that the debug version is always going to be 
 slower than the release version. In the release version, Cargo removes all that 
 and also performs some code optimizations. Building a release version takes a 
-little bit more time, but the end result is a faster and smaller xecutable. 
+little bit more time, but the end result is a faster and smaller executable.
 
 You can now take the executable from the release directory and put it in any 
 folder you want, and as long as you pass it a path with a valid Markdown file 
 that ends in `*.md` (that only has first-order headings and paragraphs), 
 it will produce a valid HTML file!
 
-If you are reading this, I want you to know that I am very proud of all the work 
-you have done here. I have spent about four weeks off and on 
-writing this tutorial with you in mind. Whoever you are, I hope that this tutorial 
-has helped you gain confidence with Rust so that you are well-equipped mentally 
-and emotionally to start tackling some of the more difficult aspects of this 
+After you run `cargo build --release`, any code changes you make will only 
+appear in the `debug` version after running `cargo build` or `cargo run`. If you 
+want your changes to appear in a new release version, run `cargo build --release` 
+again. 
+
+And with that, I think we'll call this tutorial complete.
+
+If you made it this far, I want you to know that I am very proud of all the work 
+you have done here. I have spent about four weeks off and on writing this 
+tutorial with you in mind. Whoever you are, I hope that this tutorial has 
+helped you gain confidence with Rust so that you are well-equipped mentally and 
+emotionally to start tackling some of the more difficult aspects of this 
 really fun and unique language. 
 
-I would *love* to know how you felt about this tutorial. Give me a shout out on 
-Reddit (I'm [/u/codeonatypewriter](https://www.reddit.com/u/codeonatypewriter)) 
-or [fill out this form](https://forms.gle/VbDtvbep1z276Ei68). Thank you so much!
+I would *love* to know how you felt about this tutorial. At the bottom of this 
+page, you will find several ways to share your thoughts with me. Thank you so 
+much!
 
 ## Where to go from here
 
 This tutorial was *not* an exhaustive introduction to Rust--but I do hope that 
 you have more confidence with Rust to tackle greater challenges. 
 
-As far as our tiny Markdown compiler, I've added some challenges below for you 
+As far as our tiny Markdown compiler goes, I've added some challenges below for you 
 to continue on your journey. Do note that you will have to do some self-study 
 to solve these. The [Official Rust Book](https://doc.rust-lang.org/book/) is a 
 great place to start. 
