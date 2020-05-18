@@ -6,6 +6,7 @@ slug: rust-tutorial-markdown-compiler
 author: Jesse Lawson
 type: post
 tutorial: true
+hackernewslink: https://news.ycombinator.com/item?id=23206660
 series: rust
 date: '2019-10-21'
 categories:
@@ -83,12 +84,12 @@ times until finally I sat down with a pen and paper and wrote down exactly what 
 was that kept simultaneously bothering me about and attracting me to Rust. 
 
 What I arrived at was something that will likely not be a surprise to you: Rust 
-was frustrating to learn because it required a different mental model when 
-approaching programming problems. I couldn't do what I did when going from C to 
-C++, or C++ to PHP, or C++ to Java, or any of the other thirty or so languages 
-I am familiar with, which was to just fit whatever syntactical differences the 
-new language had into my existing framework for what a language should do and 
-how it should feel. Rust required, for the most part, a clean slate. 
+was frustrating to learn because it required a different mental model when approaching 
+programming problems. I couldn't do what I did when going from C to C++, or C++ to PHP, 
+or C++ to Java, or any of the other thirty or so languages I am familiar with, which 
+was to just fit whatever syntactical differences the new language had into my 
+existing framework for what a language should do and how it should feel. Rust 
+required, for the most part, a clean slate. 
 
 As a tutorial author, I wanted to write an introductory tutorial on Rust to get 
 developers in other languages up and running as fast as possible--but I didn't 
@@ -220,10 +221,10 @@ just too much to learn too soon, and there's not enough payoff in the beginning
 after "Hello, world!" to justify sticking around. In my humble opinion, this is 
 because most Rust tutorials aren't teaching people how fun Rust is for building 
 tools, and instead focusing too much on how idiosyncratic the unique features 
-of Rust are. Those tutorials are still important, but I think other 
-tutorials--ones that focus on building something, even if it's not that 
-complicated--are important, too, and serve to compliment the still young (as of 
-2019) ecosystem of Rust tutorials online.
+of Rust are. Those tutorials are still important, but I think other tutorials--
+ones that focus on building something, even if it's not that complicated--are 
+important, too, and serve to compliment the still young (as of 2019) ecosystem 
+of Rust tutorials online.
 
 {{% /deepdive %}}
 
@@ -756,8 +757,9 @@ sense here since the value of the `String` will change as we add ("push") data
 into it. 
 
 Think of a `&str` as a window into another string, whether that string is a 
-string literal (in which case the string slice would be static and stack-allocated) 
-or a `String` (in which case the string slice would be heap-allocated).
+string literal (in which case the string slice would be static and 
+stack-allocated) or a `String` (in which case the string slice would be 
+heap-allocated).
 
 Let's see how both of these string types can be used effectively by modifying 
 our `the_version` variable to be a `&str`--and while we're at it, let's change 
@@ -809,7 +811,7 @@ Our program will build and run just fine as long as we comment out our old
 }*/
 
 fn usage() {
-    let the_version = "1.0";
+    let the_version = "0.1";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
     println!("The Version: {}", the_version);
 }
@@ -832,7 +834,7 @@ Your output should look like this:
 ```shell
 $ cargo run -q
 tinymd, a markdown compiler written by <YOUR NAME>
-The Version: 1.0
+The Version: 0.1
 ```
 
 Though it runs fine, we haven't improved anything by baking in a string version 
@@ -851,8 +853,8 @@ authors = ["Jesse Lawson <jesselawson@protonmail.com>"]
 edition = "2018"
 {{</codecaption>}}
 
-Many other languages use manifest files like Rust's `Cargo.toml`, such as 
-Node (`package.json`) and Ruby (`Gemfile`). The information here is fairly 
+Many other languages use manifest files like Rust's `Cargo.toml`, such as Node 
+(`package.json`) and Ruby (`Gemfile`). The information here is fairly 
 straight-forward. These variables in here are sometimes called *environment* 
 variables. Rust will provide the key values from the manifest file as environment 
 variables for us during compilation.
@@ -998,8 +1000,8 @@ let's try to modify the value of `the_version` after declaring it:
 
 ```rust
 fn usage() {
-    let the_version = "1.0";
-    the_version = "2.0";
+    let the_version = "0.1";
+    the_version = "0.2";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
     println!("The Version: {}", the_version);
 }
@@ -1020,7 +1022,7 @@ $ cargo build
 warning: value assigned to `the_version` is never read
   --> src\main.rs:36:9
    |
-36 |     let the_version = "1.0";
+36 |     let the_version = "0.1";
    |         ^^^^^^^^^^^
    |
    = note: #[warn(unused_assignments)] on by default
@@ -1029,12 +1031,12 @@ warning: value assigned to `the_version` is never read
 error[E0384]: cannot assign twice to immutable variable `the_version`
   --> src\main.rs:37:5
    |
-36 |     let the_version = "1.0";
+36 |     let the_version = "0.1";
    |         -----------
    |         |
    |         first assignment to `the_version`
    |         help: make this binding mutable: `mut the_version`
-37 |     the_version = "2.0";
+37 |     the_version = "0.2";
    |     ^^^^^^^^^^^^^^^^^^^ cannot assign twice to immutable variable
 
 error: aborting due to previous error
@@ -1084,8 +1086,8 @@ of `the_version`:
 
 ```rust
 fn usage() {
-    let mut the_version = "1.0";
-    the_version = "2.0";
+    let mut the_version = "0.1";
+    the_version = "0.2";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
     println!("The Version: {}", the_version);
 }
@@ -1259,10 +1261,10 @@ Remember: the goal is for `the_title` to equal something like this:
 ```rust
 fn get_title() -> String {
   let mut the_title = String::from(env!("CARGO_PKG_NAME"));
-  title.push_str(" (v");
-  title.push_str(env!("CARGO_PKG_VERSION"));
-  title.push_str("), ");
-  title.push_str(env!("CARGO_PKG_DESCRIPTION"));
+  the_title.push_str(" (v");
+  the_title.push_str(env!("CARGO_PKG_VERSION"));
+  the_title.push_str("), ");
+  the_title.push_str(env!("CARGO_PKG_DESCRIPTION"));
   return the_title;
 }
 ```
@@ -1275,22 +1277,14 @@ We are going to call `get_title()` from the `print_short_banner()` function
 by using the `println!()` macro. Can you guess how we will do that?
 
 <details>
-<summary>Two Possible Solutions</summary>
+<summary>One Possible Solution</summary>
 
-You can either use the string substitution characters `{}` (just like how you 
+You can use the string substitution characters `{}` (just like how you 
 might use `%s` in C's `printf`), like this:
 
 ```rust
 fn print_short_banner() {
   println!("{}", get_title());
-}
-```
-
-Or, you can just call `get_title()` as `println!()`'s only argument, like this:
-
-```rust
-fn print_short_banner() {
-  println!(get_title());
 }
 ```
 </details>
@@ -1603,7 +1597,7 @@ and not `args[1]`, since the former will provide a reference to the data and the
 latter will trigger a *move* of that value--which we do not want. 
 
 Let's go ahead and collect up the arguments in our program. Go to your `main()` 
-function and delete everything in side. Next, let's add our `args` declaration: 
+function and delete everything inside. Next, let's add our `args` declaration: 
 
 ```rust
 fn main() {
@@ -1703,21 +1697,24 @@ accept a single argument: a string slice that is the filename to parse.
 
 To add an argument to a function, you declare it the same way you would a 
 regular variable, except this time you can omit the `let`. Let's modify the 
-function to accept a string slice argument named `_file`:
+function to accept a string slice argument named `_filename`:
 
 ```rust
-fn parse_markdown_file(_file: &str) {
+fn parse_markdown_file(_filename: &str) {
 
 }
 ```
+
+I'm using an underscore (`_`) here in the filename variable to remind me that 
+this is coming from a function parameter. Feel free to name it whatever you want. 
 
 Let's also go ahead and put some placeholder text in there to help us see when 
 this function is called:
 
 ```rust
-fn parse_markdown_file(_file: &str) {
+fn parse_markdown_file(_filename: &str) {
   print_short_banner();
-  println!("[ INFO ] Trying to parse {}...", _file);
+  println!("[ INFO ] Trying to parse {}...", _filename);
 }
 
 ```
@@ -1787,11 +1784,10 @@ into HTML, and write the HTML to a new file. It's going to be fun!
 
 # Chapter 5
 
-We've finally made it: the last chapter in this tutorial! If you've followed 
-along up until this point, you've hopefully grown more confident about starting, 
-building, and iterating a Rust project. Our Markdown compiler is now at a point 
-where it can accept command-line input, and reliably displays a banner based on 
-the input provided. 
+If you've followed along up until this point, you've hopefully grown more 
+confident about starting, building, and iterating a Rust project. Our Markdown 
+compiler is now at a point where it can accept command-line input, and reliably 
+displays a banner based on the input provided. 
 
 In this chapter, we will configure our tool to actually parse a Markdown file then 
 output the valid translated HTML into a new file. We will do this by developing 
@@ -1832,9 +1828,7 @@ Jesse likes to drink coffee in the mornings and iced tea throughout the day. Som
 
 # Jesse's favorite hobbies
 
-Jesse likes to write about computer programming and game design, and when he is 
-not hunched over a computer, you can find him out on a run and listening to a 
-podcast or the serenity of mother nature. 
+Jesse likes to write about computer programming and game design, and when he is not hunched over a computer, you can find him out on a run and listening to a podcast or the serenity of mother nature. 
  
  
 {{</codecaption>}}
@@ -1844,7 +1838,7 @@ As you can see, one of my most endearing qualities is my humble modesty.
 With `test.md` in the root of our project folder, we now have an actual file to 
 open and read from.
 
-<b>Making a `Path` variable in Rust</b>
+## Making a `Path` variable in Rust
 
 Rust goes to great lengths to make sure that your program is cross-platform. One 
 of the ways it does this is by providing the `Path` module, which helps format 
@@ -1873,13 +1867,13 @@ fn parse_markdown_file(_filename: &str) {
   let input_filename = Path::new(_filename);
 ```
 
-The call to `Path::new()` behaves just like what we saw from `String::new()`. 
-Now, `input_filename` is a `Path` that we can try to open. 
+The call to `Path::new()` creates a new `Path` object for us. Now, `input_filename` 
+is a `Path` that we can try to open. Again, don't use a `String` object to 
+hold a filename, since the `Path` object is specificially designed to play well 
+with Rust's other tools for opening, reading, and writing to files. 
 
-One other reason to use the `Path` objects is because they play well with Rust's 
-other tools for opening, reading, and writing to files. With our path now an 
-official Rust `Path` variable, let's pull in another tool to be able to open 
-the file that the path points to: `File`.
+With our path now an official Rust `Path` variable, let's pull in another tool 
+to be able to open the file that the path points to: `File`.
 
 Just like when we created the `Path` variable, we will first need to declare that 
 we want to `use` it by adding the following to the top of `main.rs`:
@@ -1921,20 +1915,18 @@ What the `.expect()` does is tell Rust to unwrap the return value and pass along
 the `Ok()`--except upon failure, in which case we output the string argument to 
 except as a kind of error message. 
 
-To help explain this, the following two blocks of code will produce the same 
-result for the variable `file`.
-
-Condensed:
+So when we write something like this:
 ```rust
 let file = File::open(&input_filename).expect("Couldn't open file");
 ```
 
-Verbose:
+We're basically writing a less verbose (and, as you can see, less diagnostically 
+helpful) version of this:
 ```rust
 use std::error::Error;
 // ...
 let file = match File::open(&input_filename) {
-  Err(err) => panic!("Couldn't open: {}", err.description()),
+  Err(err) => panic!("Couldn't open file: {}", err.description()),
   Ok(value) => value,
 };
 ```
@@ -2003,7 +1995,7 @@ let mut _ptag: bool = false; // keep track of paragraph tags
 let mut _htag: bool = false; // keep track of h1 tags
 ```
 
-Notice that I'm using ab underscore (`_`) here to precede their names. In Rust, 
+Notice that I'm using an underscore (`_`) here to precede their names. In Rust, 
 if you instantiate a variable like this but never use the value you use to 
 instantiate it, you will get a warning about *unused variable assignments*. Rust 
 gets deeply concerned with the fact that you have set a value to a variable that 
@@ -2129,7 +2121,7 @@ error?
 Well, it might be the end of the file! So instead of doing error checking on 
 this line every time, we'll just do a Rust trick called *unwrapping*. When you 
 *unwrap* an Result object, you are telling Rust that you 1) expect the value 
-to be available, and 2) don't care if the line is garbage. 
+to be available, and 2) don't care if the value is garbage. 
 
 If you wanted to do it the verbose way, you might write:
 
@@ -2142,8 +2134,8 @@ let line_contents = match line {
 
 Notice how we would have to match each of the `Result` elements (`Ok()` and 
 `Err()`). We don't really need all this because, frankly, it's a bit overkill 
-for just reading the contents of a line. So instead of manually unwrapping the 
-`Result` object, we can just use Rust's `.unwrap()` method:
+for just reading the contents of a line in a toy markdown compiler. So instead 
+of manually unwrapping the `Result` object, we can just use Rust's `.unwrap()` method:
 
 ```rust
 // Verbose way:
@@ -2156,21 +2148,19 @@ for just reading the contents of a line. So instead of manually unwrapping the
 let line_contents = line.unwrap();
 ```
 
-Much cleaner! 
-
 Let's look at what we have so far for the for-loop, complete with some comments:
 
 ```rust
 // Loop through the reader lines
 for line in reader.lines() {
-  // For each line, unwrap it and make it a string
-  let line_contents = line.unwrap().to_string();
+  // For each line, unwrap it
+  let line_contents = line.unwrap();
 ```
 
 You're doing great! Get a drink of water, stretch your back and legs, and come 
 back when you're ready. 
 
-<b>Getting the first character of a line in Rust</b>
+## Getting the first character of a line in Rust
 
 With a line from the Markdown file represented as a string variable called 
 `line_contents`, we can now figure out what kind of line this is. There are 
@@ -2225,6 +2215,9 @@ translate to:
 let mut output_line = String::new();
 ```
 
+Just like when we created a `Path` variable by using `Path::new()`, we're using 
+`String::new()` to declare a mutable variable named `output_line`.
+
 Our main output variable is `tokens`; that's a vector a strings that will contain 
 one string object for every line that comes through from the file. When we are 
 done processing `line_contents` based on the value of `first_char` (whether it 
@@ -2241,12 +2234,13 @@ return the first character of the line, but rather, an `Option` object.
 Just like `Result`, `Option` is made up of two pieces--but they're called `Some()` 
 and `None()` instead of `Result`'s `Ok()` and `Err()`. 
 
-When you pop and element from a vector in Rust, you will either get *some* value 
-or *none*. We really only care if we are getting *some* character that looks 
-like `#`--or, put another way, `Some('#')`.
+When you pop and element from a vector in Rust, you will either get *some* 
+value or *none*. We really only care if we are getting *some* character that 
+looks like `#`--or, put another way, `Some('#')`.
 
 The `match` block has the same kind of syntax that you may recall from before, 
 this time with the default case (`_`) and `Some("#")`:
+
 ```rust
 
 match first_char.pop() {
@@ -2366,7 +2360,7 @@ We want `line_contents` minus the first two characters. Here's why:
 # Sometext
 ^^
 ||
-|+--- This space is unecessary for <h1>Sometext</h1>
+|+--- This space is unnecessary for <h1>Sometext</h1>
 |
 +--- This character converts to <h1>
 ```
@@ -2398,12 +2392,12 @@ we're done, we will push *all* of `line_contents` to `output_line`.
 With those parameters, see if you can finish the match block's default case by 
 yourself, then open the solution below to see how you did.
 
-{{% deepdive title="One Solution" %}}
+{{% deepdive title="One Solution" %}}  
 
 ```rust
  _ => {
     
-    if !_ptag {                      // If _ptag is null,
+    if !_ptag {                      // If _ptag is false,
       _ptag = true;                  // set it to true, then 
       output_line.push_str("<p>");  // push a <p> to the output line.
     } 
@@ -2420,7 +2414,7 @@ At this point, the match block is finished!
 
 Here's about what it should look like so far:
 
-{{% codecaption title="the whole match block" %}}
+```rust {linenos=true}
 match first_char.pop() {
     Some('#') => {
       if _ptag {
@@ -2448,7 +2442,7 @@ match first_char.pop() {
       
     }
 };
-{{% /codecaption %}}
+```
 
 We're almost finished with this section. Before we can push `output_line` into 
 the `tokens` vector (which we will ultimately be writing to the output file), 
@@ -2515,8 +2509,7 @@ for t in &tokens {
 ```
 
 You can also download all the code up to this point, including the above 
-for-loop that just prints `tokens` straight to the console, from 
-[this gist link](https://gist.github.com/jesselawson/f2833e1aa02ed9320792291bbd2a1457).
+for-loop that just prints `tokens` straight to the console, from [this gist link](https://gist.github.com/jesselawson/f2833e1aa02ed9320792291bbd2a1457).
 
 {{% /deepdive %}}
 
@@ -2617,15 +2610,14 @@ unpacking the Result object, though, we're going to continue to use
 `.expect()`:
 
 ```rust
-let mut outfile = File::create(output_filename.to_string())
+let mut outfile = File::create(output_filename)
   .expect("[ ERROR ] Could not create output file!");
 ```
 
-By this point, you should need to explanation of the above code. We're creating 
+By this point, I hope you're comfortable reading the above code. We're creating 
 a mutable variable `outfile` equal to the result of `File::create()`, into which 
-we pass the `output_filename` formatted as a string (hence the `.to_string()` on 
-the end). The call to `.expect()` will trigger only if there was an error 
-creating the file. 
+we pass the `output_filename`. The call to `.expect()` will trigger only if 
+there was an error creating the file. 
 
 With the file created, we are FINALLY ready to loop through `tokens` and write 
 each element to the output file. Assuming a successfully created `outfile`, 
@@ -2647,8 +2639,8 @@ stuffs it into the output file. Neat!
 
 Remember that we borrow a reference to the `tokens` vector (like this: `&tokens`) 
 because of Rust's ownership rules. If we didn't include that `&`, the value of 
-each element in `tokens` would be passed into the for-loop and removed from 
-outside it--and we don't want that!
+each element in `tokens` would be moved into the for-loop and removed from 
+outside of it--and we don't want that!
 
 Remember, too, that `outfile` will automatically be closed once it falls out of 
 scope--which will be the at end of the `parse_markdown_file()` function. 
@@ -2662,7 +2654,7 @@ println!("[ INFO ] Parsing complete!");
 
 We can now put the closing bracket on our parsing function and test our compiler. 
 You should already have a file called 
-[tiny.md](https://gist.githubusercontent.com/jesselawson/007ea78b162c280c66fc96372a156895/raw/f155405be37f5924ac0d49f50d796ad038ea1735/test.md) in the root of your
+[test.md](https://gist.githubusercontent.com/jesselawson/007ea78b162c280c66fc96372a156895/raw/f155405be37f5924ac0d49f50d796ad038ea1735/test.md) in the root of your
 project (the same directory as the manifest file). We can trigger a build 
 and a quiet run of the tool by running:
 
@@ -2683,8 +2675,7 @@ $
 Now check the root of your project directory for a new file called `test.html`. 
 If you open it in your editor, you should see valid HTML:
 
-{{% codecaption title="test.html" %}}
-
+```text
 <h1>My favorite author</h1>
 <p>This is a report about my favorite writer. His name is Jesse Lawson.</p>
 <h1>Jesse's favorite food</h1>
@@ -2693,8 +2684,7 @@ If you open it in your editor, you should see valid HTML:
 <p>Jesse likes to drink coffee in the mornings and iced tea throughout the day. Sometimes, he even drinks water.</p>
 <h1>Jesse's favorite hobbies</h1>
 <p>Jesse likes to write about computer programming and game design, and when he is not hunched over a computer, you can find him out on a run and listening to a podcast or the serenity of mother nature.</p>
-
-{{% /codecaption %}}
+```
 
 And with that, we are *finished*! 
 
@@ -2728,7 +2718,7 @@ our project. Don't worry: this chapter is incredibly short!
 
 Up until now, every time we have built our project using `cargo build` or 
 `cargo run` to trigger a build, our executable (`tinymd.exe`) has been built 
-in the "debug" folder that is located inside the "target" folder off of the 
+in the "debug" folder that is located inside the "target" folder in the 
 project root:
 
 ```text
@@ -2766,30 +2756,37 @@ The development version has debug symbols that Cargo uses to help you during
 development, which is one reason that the debug version is always going to be 
 slower than the release version. In the release version, Cargo removes all that 
 and also performs some code optimizations. Building a release version takes a 
-little bit more time, but the end result is a faster executable. 
+little bit more time, but the end result is a faster and smaller executable.
 
 You can now take the executable from the release directory and put it in any 
 folder you want, and as long as you pass it a path with a valid Markdown file 
 that ends in `*.md` (that only has first-order headings and paragraphs), 
 it will produce a valid HTML file!
 
-If you are reading this, I want you to know that I am very proud of all the work 
-you have done here. I have spent about four weeks off and on 
-writing this tutorial with you in mind. Whoever you are, I hope that this tutorial 
-has helped you gain confidence with Rust so that you are well-equipped mentally 
-and emotionally to start tackling some of the more difficult aspects of this 
+After you run `cargo build --release`, any code changes you make will only 
+appear in the `debug` version after running `cargo build` or `cargo run`. If you 
+want your changes to appear in a new release version, run `cargo build --release` 
+again. 
+
+And with that, I think we'll call this tutorial complete.
+
+If you made it this far, I want you to know that I am very proud of all the work 
+you have done here. I have spent about four weeks off and on writing this 
+tutorial with you in mind. Whoever you are, I hope that this tutorial has 
+helped you gain confidence with Rust so that you are well-equipped mentally and 
+emotionally to start tackling some of the more difficult aspects of this 
 really fun and unique language. 
 
-I would *love* to know how you felt about this tutorial. Give me a shout out on 
-Reddit (I'm [/u/codeonatypewriter](https://www.reddit.com/u/codeonatypewriter)) 
-or [fill out this form](https://forms.gle/VbDtvbep1z276Ei68). Thank you so much!
+I would *love* to know how you felt about this tutorial. At the bottom of this 
+page, you will find several ways to share your thoughts with me. Thank you so 
+much!
 
 ## Where to go from here
 
 This tutorial was *not* an exhaustive introduction to Rust--but I do hope that 
 you have more confidence with Rust to tackle greater challenges. 
 
-As far as our tiny Markdown compiler, I've added some challenges below for you 
+As far as our tiny Markdown compiler goes, I've added some challenges below for you 
 to continue on your journey. Do note that you will have to do some self-study 
 to solve these. The [Official Rust Book](https://doc.rust-lang.org/book/) is a 
 great place to start. 
@@ -2798,8 +2795,10 @@ great place to start.
 
 * At the end of the `match first_char.pop()` block, we have to repeat ourselves 
   by checking whether the `_ptag` or `_htag` are open. How could you encapsulate 
-  this logic in a function to better adhere to the 
-  [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)?
+  this logic in a function to better adhere to the [DRY principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)?
+
+* The way we are opening and reading the input file is not the same as what you 
+  find in the Rust docs for `read_lines` [here](https://doc.rust-lang.org/rust-by-example/std_misc/file/read_lines.html). How (and why) is the linked Rust code different? 
 
 * How could you add in some other HTML tags at the top of your output file, like 
   a `<style>` tag or even a link to a CSS file *before* you iterate over each 
@@ -2824,12 +2823,16 @@ great place to start.
 
 Feel free to reach out in whatever way works for you:
 
-* <strong>Send me an email!</strong> {{<myemail>}} (or [this](https://forms.gle/VbDtvbep1z276Ei68)
- Google form if you don't want me to know your email)
+* <strong>Clone the repo!</strong> Feel free to [clone this repo](https://github.com/jesselawson/rust-tiny-markdown-compiler-tutorial), make some changes, and submit a PR. 
+* <strong>Send me an email!</strong> {{<myemail>}} (or [this](https://forms.gle/VbDtvbep1z276Ei68) Google form if you don't want me to know your email)
+* If you're feeling generous, <strong>[☕ buy me a coffee!](https://www.buymeacoffee.com/jesselawson)</strong>
 
-* <strong>Stalk me on Reddit!</strong> [/u/codeonatypewriter](https://www.reddit.com/u/codeonatypewriter)
+## Special thanks
 
-* <strong>[☕ buy me a coffee!](https://www.buymeacoffee.com/jesselawson)</strong>
+Many people have reached out with helpful feedback to improve this tutorial. While 
+not an exhaustive list, these are some of the folks from our community who went 
+above and beyond to help with fine-tuning:
 
-
-
+* [Jordan Terrell](http://www.jordanterrell.com/)
+* [Michael Leonard](http://mikelnrd.com/)
+* [Nick Radcliffe](http://stochasticsolutions.com)
