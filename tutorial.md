@@ -2826,3 +2826,13 @@ Feel free to reach out in whatever way works for you:
 * <strong>Clone the repo!</strong> Feel free to [clone this repo](https://github.com/jesselawson/rust-tiny-markdown-compiler-tutorial), make some changes, and submit a PR. 
 * <strong>Send me an email!</strong> {{<myemail>}} (or [this](https://forms.gle/VbDtvbep1z276Ei68) Google form if you don't want me to know your email)
 * If you're feeling generous, <strong>[☕ buy me a coffee!](https://www.buymeacoffee.com/jesselawson)</strong>
+
+## Special thanks
+
+Many people have reached out with helpful feedback to improve this tutorial. While 
+not an exhaustive list, these are some of the folks from our community who went 
+above and beyond to help with fine-tuning:
+
+* [Jordan Terrell](http://www.jordanterrell.com/)
+* [Michael Leonard](http://mikelnrd.com/)
+* [Nick Radcliffe](http://stochasticsolutions.com)
