@@ -887,7 +887,7 @@ are not in the manifest file. The reason they aren't there is because they
 are not part of the default scaffolding. Let's go ahead and add them; you are free 
 to set these to whatever you would like.
 
-Go to the `config.toml` file and add entries for description and homepage, then
+Go to the `Cargo.toml` file and add entries for description and homepage, then
 modify the name, authors, and version as you see fit:
 
 {{<codecaption lang="toml" title="Cargo.toml">}}
