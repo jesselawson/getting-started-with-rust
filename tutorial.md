@@ -1196,11 +1196,11 @@ Here's something we haven't seen before: a `String` variable can be created *fro
 another string--even if that string is a string slice. Here we are creating 
 a mutable variable `the_title` from the string returned by the call to `env!()`, 
 which is grabbing the string value associated with the key `CARGO_PKG_NAME`--which 
-itself is associated with the manifest file's `title` key. Neat!
+itself is associated with the manifest file's `name` key. Neat!
 
 What is the value of `the_title` right now? 
 
-It's `tinymd`, which is what we see when we look at the value for the `title` 
+It's `tinymd`, which is what we see when we look at the value for the `name` 
 key in the manifest file. 
 
 With the beginnings of the title string started, we can now start to imagine what 
