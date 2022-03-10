@@ -2,6 +2,8 @@
 
 I appreciate your pull requests to help make this tutorial better! 
 
+**March 2022 Update** Slowly but surely I'll be migrating my tutorials over to a system where merged PRs will be automatically deployed to production. In the meantime, I'm still accepting PRs into this one and will continue to manually update as needed. Thank you!
+
 ## Contributing
 
 1. Clone the repo
