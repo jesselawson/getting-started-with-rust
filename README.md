@@ -1,8 +1,8 @@
+_**June 2022 Update**: I'm revamping and updating this book for 2022. Take a look at the `spring-cleaning` branch for a preview of what I've been working on. I'm hoping to have this done by mid-summer._
+
 # Source for the [Rust TinyMD Tutorial](https://jesselawson.org/rust/getting-started-with-rust-by-building-a-tiny-markdown-compiler/)
 
 I appreciate your pull requests to help make this tutorial better! 
-
-**March 2022 Update** Slowly but surely I'll be migrating my tutorials over to a system where merged PRs will be automatically deployed to production. In the meantime, I'm still accepting PRs into this one and will continue to manually update as needed. Thank you!
 
 ## Contributing
 
