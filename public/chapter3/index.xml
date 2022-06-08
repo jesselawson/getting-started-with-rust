@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3: Strings &amp; memory on Getting Started with Rust</title>
+    <link>https://jesselawson.org/chapter3/</link>
+    <description>Recent content in 3: Strings &amp; memory on Getting Started with Rust</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jesselawson.org/chapter3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a string variable in Rust</title>
+      <link>https://jesselawson.org/chapter3/create-string/</link>
+      <pubDate>Fri, 03 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter3/create-string/</guid>
+      <description>In most languages, the concept of strings have been abstracted away to just text between quotes &amp;quot;like this&amp;quot;. Rust requires that we become very familiar with how a string is understood by a computer, which is as a collection of bytes. In Rust&amp;rsquo;s case, these bytes are guaranteed to be valid UTF-8.
+Every language has a way to implement a collection of bytes in one of two ways: heap-allocated strings, which are dynamically created at runtime and during the application&amp;rsquo;s lifecycle, and stack-allocated strings, which are allocated at compile-time.</description>
+    </item>
+    
+    <item>
+      <title>Return a string from a function</title>
+      <link>https://jesselawson.org/chapter3/return-string-from-function/</link>
+      <pubDate>Sat, 04 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter3/return-string-from-function/</guid>
+      <description>Recall that there are two types of strings in Rust: there&amp;rsquo;s the vector-esque String, and the string slice &amp;amp;str. We use a String when we want a string that we can modify like we would an array (pushing and popping characters and/or strings to and from it), and &amp;amp;str when we only need a slice of an existing string.
+We can modify get_version() to return a string by modifying the return value of the function.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 3 Checkpoint</title>
+      <link>https://jesselawson.org/chapter3/checkpoint/</link>
+      <pubDate>Sat, 04 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter3/checkpoint/</guid>
+      <description>With the usage banner complete, we are now ready to start building functionality into our tool. Armed with new knowledge and confidence about creating strings, adding characters to strings, and printing strings, we&amp;rsquo;re now ready to begin parsing command line arguments so that we can really dig in to the heart of this tool.
+ 🚀 Third Checkpoint Reached! 🚀   &#34;It&amp;#39;s not that I&amp;#39;m so smart, it&amp;#39;s just that I stay with problems longer.</description>
+    </item>
+    
+  </channel>
+</rss>

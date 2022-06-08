@@ -1,0 +1,58 @@
+{{ define "main" }}
+<main id="main">
+  <h1>{{ .Title }}</h1>
+  {{ if site.Params.search }}
+  <input
+    id="search"
+    type="text"
+    placeholder="{{ T "search_placeholder" }}"
+    aria-label="{{ T "search_aria_label" }}"
+  />
+  {{ end }}
+
+  {{ .Content }}
+
+  {{ $haslinks := ne $.Page.Params.prev_relref "" }}
+  {{ $haslinks = or (ne $.Page.Params.next_relref "") }}
+  
+  {{ if $haslinks }}
+  {{ if ne $.Page.Params.disable_prev_next_links true }}
+  <div class="prev-next-links">
+    
+      {{ if ne $.Page.Params.next_relref ""}}
+      <p><button class="prev-next-link"><a  href="{{ relref . $.Page.Params.next_relref }}">Continue &rarr;</a></button></p>
+    {{ end }}
+
+  
+    {{ if ne $.Page.Params.prev_relref ""}}
+      <p><button class="prev-next-link-back"><a  href="{{ relref . $.Page.Params.prev_relref }}">&larr; Go back</a></button></p>
+    {{ end }}
+    
+  </div>
+  {{ end }}
+  {{ end }}
+
+  {{ if eq $.Page.Params.enable_list true }}
+  
+  <ul class="patterns-list" id="list">
+    {{ range .Pages.ByPublishDate.Reverse }}
+    <li>
+      <h2>
+        <a href="{{ .RelPermalink }}">
+          <svg
+            class="bookmark"
+            aria-hidden="true"
+            viewBox="0 0 40 50"
+            focusable="false"
+          >
+            <use xlink:href="#bookmark"></use>
+          </svg>
+          {{ .Title }}
+        </a>
+      </h2>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</main>
+{{ end }}

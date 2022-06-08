@@ -1,0 +1,53 @@
+{{ $module := .Params.chapter }}
+{{ $checkpoint := .Params.check }}
+{{ $feedback := .Params.feedback }}
+{{ $gist := .Params.gist }}
+{{ $nextModuleLink := .Params.nextmodulelink }}
+{{ $module_link := printf "#%s" $module }}
+{{ $quote := .Params.quote }}
+{{ $last := .Params.last }}
+{{ $quote_author := .Params.author }}
+<figure class="code-objectives-checkpoint checkpoint">
+    <figcaption>
+      <span>{{ humanize $checkpoint }} Module Complete!</span>
+    </figcaption>
+    <div class="checkpoint-wrapper">
+      <div class="checkpoint-wrapper-container">
+      {{ if $quote }}
+      <blockquote>
+        "{{$quote}}"
+        {{ if $quote_author }}
+        <footer>&mdash;{{$quote_author}}</footer>
+        {{ end }}
+      </blockquote>
+      {{ end }}
+      <p>Before you continue, you
+      should be able to confidently:</p>
+      
+      {{ $num := strings.TrimLeft "chapter-" $module }}
+
+      {{ range $.Page.Params.slos }}
+      
+      {{ if eq .number ($num) }}
+      <ul class="checkmark-lists">
+      {{ range .objectives }}
+      <li> {{ . }}</li>
+      {{ end }}
+      </ul>
+      {{ end }}
+      {{ end }}
+
+      {{ if $gist }}
+      <p><em>All our code up to this point is available <a href="{{ $gist }}">here on GitHub</a>.</em></p>
+      {{ end }}
+      {{ if $last }}
+      <p class="last-module-text">This is the last module! Congratulations! I hope this has been a valuable experience. If you don't mind, I would really appreciate it if you could let me know how you feel about it. You can use <a href="https://forms.gle/r8nnN927BtevXrqs7">this form</a> to let me know (anonymously, if you want). Thank you so much!</p>
+      {{ else }}
+      <p class="confident">If you feel confident,<br/><a href="{{ $nextModuleLink }}" ><button class="continue-btn">continue to the next module &rarr;</button></a></p>
+      {{ end }}
+      <p>You may also wish to go back and <a href="{{ relref . $module_link }}">review this chapter again</a>.</p>
+      {{ if $feedback }}<p style="font-weight: normal"><em>If you have any feedback about this chapter, please <a href="{{ $feedback }}">use this form.</a></em></p>{{ end}}
+    </div>
+    </div>
+</figure>
+

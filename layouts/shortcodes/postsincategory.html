@@ -1,0 +1,15 @@
+{{ $category := or (.Get 0) $.Page.Params.categories }}
+ <div class="well">
+   
+      {{ range $key, $taxonomy := .Site.Taxonomies.categories }}
+        {{ if eq $key $category }}
+          <ul>
+            {{ range $taxonomy.Pages }}
+              <li class="postsincat-shortcode-li" hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}">{{ .LinkTitle }}</a></li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      {{ end }}
+    
+  
+</div>

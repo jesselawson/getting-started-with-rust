@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About this book on Getting Started with Rust</title>
+    <link>https://jesselawson.org/about/</link>
+    <description>Recent content in About this book on Getting Started with Rust</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jesselawson.org/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What is Markdown?</title>
+      <link>https://jesselawson.org/about/markdown/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/about/markdown/</guid>
+      <description>If you&amp;rsquo;re already familiar with Markdown, feel free to skip ahead.
+Markdown is a minimalistic language for writing HTML content very quickly. It gives us the ability to write text-based documents that are legible and small, while compiling into vaid HTML. It makes drafting, updating, and publishing very easy, and is a common tool used among programmers in all lines of work.
+A Markdown compiler&amp;rsquo;s job is to convert &amp;ldquo;markdown&amp;rdquo; content into valid HTML.</description>
+    </item>
+    
+    <item>
+      <title>Special thanks</title>
+      <link>https://jesselawson.org/about/thanks/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/about/thanks/</guid>
+      <description>Many people have reached out with helpful feedback to improve this book. While not an exhaustive list, these are some of the folks from our community who went above and beyond to help with fine-tuning:
+ Jordan Terrell Michael Leonard Nick Radcliffe https://github.com/eddy147/tinymd Eli Paul Hyun Chong Caleb Meyer Matt White Ofem Eteng Nethanel Elzas  </description>
+    </item>
+    
+    <item>
+      <title>Send feedback</title>
+      <link>https://jesselawson.org/about/feedback/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/about/feedback/</guid>
+      <description>I want to help people learn, so if there&amp;rsquo;s something I can do to improve this, please let me know. You are welcome and encouraged to submit feedback however works best for you:
+Want to report a typo or make a small suggestion? 🔥 Open up a new issue!
+Have a more significant change to recommend? ✨ Feel free to clone the repo, make some changes, and submit a PR!</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,95 @@
+baseURL = 'https://jesselawson.org/'
+languageCode = 'en-us'
+title = 'Getting Started with Rust'
+
+theme = "openbook"
+enableGitInfo = true
+
+[permalinks]
+    post = "/:filename"
+
+[[menu.nav]]
+name = "About this book" 
+url = "/about"
+weight = 1
+   
+[[menu.nav]]
+name = "1: A new project"
+url = "/chapter1"
+weight = 2
+
+[[menu.nav]]
+name = "2: Variables & functions"
+url = "/chapter2"
+weight = 3
+
+[[menu.nav]]
+name = "3: Strings & memory"
+url = "/chapter3"
+weight = 4
+
+[[menu.nav]]
+name = "4: Compiler logic"
+url = "/chapter4"
+weight = 5
+
+[[menu.nav]]
+name = "5: Reading & writing files"
+url = "/chapter5"
+weight = 6
+
+[[menu.nav]]
+name = "6: Release build"
+url = "/chapter6"
+weight = 7
+
+
+[params]
+    description = "Dive head-first into Rust from scratch, learning the basics by building a markdown compiler."
+    homeMetaContent = "A beginner-friendly, free, online book about the Rust programming language."
+    footer = "Copyright &copy; 2022 Jesse Lawson. All rights reserved."
+    showThemeSwitcher = false
+    navTitleText = "Getting Started with Rust"
+    logoAlt = "Getting Started with Rust online book"
+    
+
+[markup.goldmark.renderer]
+    unsafe = true
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
+        
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    noHl = false
+    style = 'trac'
+    tabWidth = 4
+

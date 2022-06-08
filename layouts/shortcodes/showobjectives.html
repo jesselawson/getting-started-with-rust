@@ -1,0 +1,12 @@
+<!-- Output the SLOs !-->
+{{ $num := (.Get "chapter") }}
+{{ range $.Page.Params.slos }}
+
+{{ if eq .number ($num) }}
+<ul class="checkmark-lists">
+{{ range .objectives }}
+<li> {{ . }}</li>
+{{ end }}
+</ul>
+{{ end }}
+{{ end }}
