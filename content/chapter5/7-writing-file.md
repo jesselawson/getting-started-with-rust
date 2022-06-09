@@ -143,13 +143,13 @@ You should already have a file called
 project (the same directory as the manifest file). We can trigger a build 
 and a quiet run of the tool by running:
 
-```bash
+```
 $ cargo run -q test.md
 ```
 
 You should see something like this:
 
-```bash
+```
 $ cargo run -q test.md
 tinymd (v0.1.0), A tiny markdown compiler based on Jesse's tutorials.
 [ INFO ] Starting parser!
@@ -160,15 +160,10 @@ $
 Now check the root of your project directory for a new file called `test.html`. 
 If you open it in your editor, you should see valid HTML:
 
-```text
-<h1>My favorite author</h1>
-<p>This is a report about my favorite writer. His name is Jesse Lawson.</p>
-<h1>Jesse's favorite food</h1>
-<p>Jesse really likes enchiladas and any kind of sushi.</p>
-<h1>Jesse's favorite drink</h1>
-<p>Jesse likes to drink coffee in the mornings and iced tea throughout the day. Sometimes, he even drinks water.</p>
-<h1>Jesse's favorite hobbies</h1>
-<p>Jesse likes to write about computer programming and game design, and when he is not hunched over a computer, you can find him out on a run and listening to a podcast or the serenity of mother nature.</p>
+```html
+<h1>Welcome</h1>
+<p>Welcome to my website.</p>
+<p>Here's what I like: enchiladas, coffee, and plants.</p>
 ```
 
 And with that, we are *finished*! 

@@ -296,8 +296,8 @@ for-loop that just prints `tokens` straight to the console, from [this gist link
 {{% /deepdive %}}
 
 You may be wondering about that open `reader` that we never closed. In other 
-languages it's often necessary to *close* file pointers. However, Rust will do 
-this automagically when `reader` falls out of scope. Thanks, Rust!
+languages it's often necessary to *close* file pointers. Thankfully, Rust will do 
+this automatically when `reader` falls out of scope. 
 
-We're now ready to put the finishing touches on the `parse_markdown_file()` 
-function--writing our results to a file. 
+Let's continue on and the finishing touches on the `parse_markdown_file()` 
+function&mdash;writing our results to a file. 
