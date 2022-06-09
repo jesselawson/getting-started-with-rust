@@ -113,10 +113,5 @@ $ cargo run -q
 tinymd, a markdown compiler written by <YOUR NAME>
 ```
 
-Neat! 
-
-But an argumentless and returnless function is about as useful as an 
-inflatable dart board. 
-
-To improve our `usage()` function, let's have it return a simple value that we 
-can write to the console window. 
+With our `usage()` function scaffolded, let's iterate and have it return a 
+simple value that we can write to the console window. 

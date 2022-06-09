@@ -80,5 +80,3 @@ $ cargo run -q test.md
 tinymd (v0.1.0), A tiny markdown compiler based on Jesse's tutorials.
 [ INFO ] Trying to parse test.md...
 ```
-
-Neat!

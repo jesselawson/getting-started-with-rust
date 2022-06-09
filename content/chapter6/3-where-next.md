@@ -57,4 +57,4 @@ That's it. That's the end of the book. I hope you enjoyed the journey.
 
 _-Jesse_
 
-[But what if I want to play a game?](https://jessesgames.itch.io)
+["But what if I want to play a game?"](https://jessesgames.itch.io)
