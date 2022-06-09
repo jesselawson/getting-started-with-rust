@@ -15,6 +15,6 @@ works best for you:
 
 **Have a more significant change to recommend?** <br/>✨ Feel free to [clone the repo](https://github.com/jesselawson/getting-started-with-rust), make some changes, and submit a PR!
 
-**Just want to say thanks?** <br/>❤️ You can [buy me a coffee](https://buymeacoffee.com/jesselawson) or [donate via ko-fi](https://ko-fi.com/jesse)! 
+**Just want to say thanks?** <br/>❤️ You can [buy me a coffee](https://buymeacoffee.com/jesselawson) or [donate via ko-fi](https://ko-fi.com/)! 
 
-[@jesseswords](https://twitter.com/jesseswords) [@jesse@tech.lgbt](https://tech.lgbt/@jesse). Say hi!
+[@swords](https://twitter.com/swords) [@@tech.lgbt](https://tech.lgbt/@). Say hi!

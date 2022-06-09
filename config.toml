@@ -47,7 +47,7 @@ weight = 7
 [params]
     description = "Dive head-first into Rust from scratch, learning the basics by building a markdown compiler."
     homeMetaContent = "A beginner-friendly, free, online book about the Rust programming language."
-    footer = "Copyright &copy; 2022 Jesse Lawson. All rights reserved."
+    footer = "Copyright &copy; 2022  Lawson. All rights reserved."
     showThemeSwitcher = false
     navTitleText = "Getting Started with Rust"
     logoAlt = "Getting Started with Rust online book"

@@ -23,7 +23,7 @@ some of our expectations when we use it.
 
 Calling our tool should be as simple as:
 
-```shell
+```
 $ tinymd somefile.md
 ```
 
@@ -75,25 +75,23 @@ Markdown syntax: *headings* and *paragraphs*. A heading in Markdown is denoted
 with a `#`. Paragraphs are plain text with no special characters at the start of 
 the line. 
 
-For example, let's say we have a markdown file called `favorite_writers.md` with 
+For example, let's say we have a markdown file called `favorite_song.md` with 
 the following contents:
 
 ```markdown
-# My Favorite Writer
+# My Favorite Song
 
-My favorite writer is Jesse!
+My favorite song is In The Air Tonight by Phil Collins.
 ```
 
-Aww, thanks! 
-
-In the table below, I have manually translated each line into its HTML equivalent: 
+Here is the HTML equivalent: 
 
 | Markdown                | HTML Equivalent                |
 |:------------------------|:-------------------------------|
-| `# My Favorite Writer`  | `<h1>My Favorite Writer</h1> ` |
-| `My favorite writer is Jesse!`  | `<p>My favorite writer is Jesse!<p> ` |
+| `# My Favorite Song`  | `<h1>My Favorite Song</h1> ` |
+| `My favorite song is In The Air Tonight by Phil Collins`  | `<p>My favorite song is In The Air Tonight by Phil Collins<p> ` |
 
-This type of translation is exactly what the compiler is going to do. Neat!
+This type of translation is exactly what the compiler is going to do.
 
 Now we know how our tool will be invoked, and when it is, how we want the 
 Markdown inside to be translated into HTML. Next, we'll start building the 

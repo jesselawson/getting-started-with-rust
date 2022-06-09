@@ -32,7 +32,7 @@ than just one value from the manifest file.
 When the `usage()` function prints the banner, I want it to print something like 
 this:
 
-```shell
+```
 $ tinymd
 tinymd (v0.1.0), a tiny and mostly useless markdown compiler. 
 Written by <Your Name>
@@ -42,7 +42,7 @@ Usage: tinymd <somefile.md>
 You might already see the variables that we need to retrieve in order to 
 produce the above output:
 
-```shell
+```
 [name] (v[version]), [description]
 Written by [author]
 Usage: tinymd <somefile.md>
@@ -52,7 +52,7 @@ Additionally, whenever the tool is doing it's job, I still want part of the
 banner to be outputted. For example, if I wanted to compile a file called 
 `something.md` into `something.html`, maybe the tool works like this:
 
-```shell
+```
 $ tinymd something.md
 tinymd (v0.1.0), a tiny and mostly useless markdown compiler.
 Compiling something.md...
@@ -191,7 +191,7 @@ compiler. Let's call that function `parse_markdown_file()`.
 In our empty `main.rs` file, go ahead and create these two empty functions 
 along with the same `main()` function as before:
 
-{{<codecaption lang="rust" title="main.rs">}}
+```rust
 fn parse_markdown_file() {
 
 }
@@ -203,7 +203,7 @@ fn usage() {
 fn main() {
   usage();
 }
-{{</codecaption>}}
+```
 
 Now, just above `usage()`, let's create two more functions: one to print just 
 the first line of the banner, which I'll call the *title*, and one to print both 
@@ -211,7 +211,7 @@ the title and the rest of the banner (e.g., the "written by" and "usage" strings
 We are going to call them `print_short_banner()` and `print_long_banner()`, 
 respectively:
 
-{{<codecaption lang="rust" title="main.rs">}}
+```rust
 fn parse_markdown_file() {
 
 }
@@ -231,7 +231,7 @@ fn usage() {
 fn main() {
   usage();
 }
-{{</codecaption>}}
+```
 
 We're almost finished mapping out the main functions of our tool. The last one 
 we need--and the one we will spend the rest of this chapter on--goes right at the 
@@ -392,7 +392,8 @@ way we did so for the name, version, and description in the short banner.
 
 Here's what we want the long banner to look like:
 
-```shell
+```
+$ tinymd
 tinymd (v0.1.0), A tiny markdown compiler based on Jesse's tutorials.
 Written by: <your name>
 Homepage: https://jesselawson.org/rust
@@ -457,7 +458,7 @@ detects that source files have been changed since the last time the program was
 built. We can also pass the `-q` flag to keep the output quiet--that is, not 
 show all the verbose output that comes with a bare `cargo build` command. 
 
-```shell
+```
 $ cargo run -q
 ```
 </details>

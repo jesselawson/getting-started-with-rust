@@ -110,6 +110,13 @@ $ echo "Hello, world!"
 Hello, world!
 ```
 
+You may also find _expandable_ pieces of information;
+
+{{< expandable label="They look like this! Click on me..." level="4" >}}
+These just hold extra information that's relevant but not necessarily pertinent 
+for the purposes of this book. 
+{{< /expandable >}}
+
 ## Prerequisites
 
 This book assumes that you

@@ -19,7 +19,7 @@ HTML, then write the HTML to a new file.
 
 To start, let's create a new project with `cargo`, the package manager and 
 project building tool that comes along with the Rust compiler when you 
-[installed Rust](#TODO). 
+[installed Rust](https://rustup.rs). 
 
 We will scafford this and all projects in Rust using the `cargo` tool, passing 
 the `new` argument and specifying what we want:
@@ -29,11 +29,8 @@ $ cargo new tinymd --bin
 ```
 
 The command `cargo new` builds a new project, and the `--bin` flag tells Cargo 
-that this project will result in an executable (called `tinymd`) instead of 
-being a library. I am going to cover libraries and the package system in a 
-different tutorial, but for now you can think of it like NPM, Rubygems, or any 
-other package system.
+that you want this project built as an executable (called `tinymd`) instead of 
+a library.
 
-Once you've ran the `cargo new` command, you will get a confirmation that the 
-project was scaffolded correctly. Go ahead and open the project's root 
-folder, `tinymd`.
+After running the command, you will get a confirmation that the project was 
+scaffolded correctly. Go ahead and open the project's root folder, `tinymd`.

@@ -53,7 +53,7 @@ want based on the return value of the function we use to assign it a value.
 
 We can improve this by letting Rust infer `the_version`'s type:
 
-{{<codecaption lang="rust" title="main.rs">}}
+```rust
 fn get_version() -> u16 {
     1000
 }
@@ -67,7 +67,7 @@ fn usage() {
 fn main() {
     usage();
 }
-{{< /codecaption >}}
+```
 
 Neat!
 

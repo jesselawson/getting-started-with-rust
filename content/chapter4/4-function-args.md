@@ -64,7 +64,7 @@ move, not a copy!*
 
 Go ahead and build and run your project: `cargo run -q`. Here's what mine says:
 
-```shell
+```
 $ cargo run -q
 [ ERROR ] You forgot to specify the markdown file to parse!
 tinymd (v0.1.0), A tiny markdown compiler based on Jesse's tutorials.
@@ -75,7 +75,7 @@ Usage: tinymd <somefile>.md
 
 Next, let's pass it the name of a fake file to see if we setup our logic correctly:
 
-```shell
+```
 $ cargo run -q test.md
 tinymd (v0.1.0), A tiny markdown compiler based on Jesse's tutorials.
 [ INFO ] Trying to parse test.md...

@@ -99,7 +99,7 @@ could return a value earlier than when `2` would be returned.
 Let's add the new `get_version()` function to our program by calling it from
 within the `println!()` macro in `usage()`:
 
-{{<codecaption lang="rust" title="main.rs">}}
+```rust
 fn get_version() -> u16 {
     1000
 }
@@ -112,7 +112,7 @@ fn usage() {
 fn main() {
     usage();
 }
-{{</codecaption>}}
+```
 
 Here you can see how we pass arguments to `println!()` like we would a typical
 `printf` function in another language. Since Rust provides this macro for us, it

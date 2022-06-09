@@ -19,7 +19,7 @@ just make sure `test.md` and `Cargo.toml` are in the same directory.
 *If you would rather just download `test.md` directly, you can right-click and 
 save a copy via [this link](https://gist.githubusercontent.com/jesselawson/007ea78b162c280c66fc96372a156895/raw/f155405be37f5924ac0d49f50d796ad038ea1735/test.md)*
 
-{{<codecaption title="test.md">}}
+```markdown
 # My favorite author
 
 This is a report about my favorite writer. His name is Jesse Lawson.
@@ -36,8 +36,7 @@ Jesse likes to drink coffee in the mornings and iced tea throughout the day. Som
 
 Jesse likes to write about computer programming and game design, and when he is not hunched over a computer, you can find him out on a run and listening to a podcast or the serenity of mother nature. 
  
- 
-{{</codecaption>}}
+```
 
 As you can see, one of my most endearing qualities is my humble modesty.
 

@@ -87,14 +87,17 @@
 /* Below is for the copy button*/
 .highlight {
     position: relative;
-    margin: 2em 0em 3.5em 0;
+    
     border-left: 6px solid #7f7f7f;
     
     border-bottom-left-radius: 3px;
-    padding: 1em;
-    /*box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    */
     
+    /*box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    */     
+}
+.highlight > :not(.chroma) {
+    padding: 1em;
+    margin: 2em 0em 3.5em 0;
 }
 
 .code {

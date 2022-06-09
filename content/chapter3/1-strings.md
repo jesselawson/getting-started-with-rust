@@ -7,50 +7,40 @@ prev_relref: "_index.md"
 next_relref: "2-return-a-string.md"
 ---
 
-In most languages, the concept of strings have been abstracted away to just 
-text between quotes `"like this"`. Rust requires that we become very familiar 
-with how a string is understood by a computer, which is as a collection of 
-bytes. In Rust's case, these bytes are guaranteed to be valid UTF-8. 
+Rust has two kinds of string types: **strings** and **string slices**, the 
+primary difference being their mutability.
 
-Every language has a way to implement a collection of bytes in one of two ways: 
-*heap-allocated* strings, which are dynamically created at runtime and during 
-the application's lifecycle, and *stack-allocated* strings, which are 
-allocated at compile-time.
+| Name | Type | Mutability |
+| :--- | :--- | :--------- | 
+| A string | `String` | Can be mutable or immutable |
+| A string slice | `&str` | Is only immutable |
 
-Rust calls these "strings" and "string slices"; `String`, which is allocated 
-on the heap, and `&str` (called a *string slice*), which may be stack or heap 
-allocated depending on what it points to. 
-
-Think of a `String` like a vector. It can grow and shrink, you can push and pop 
+Think of a **string** like a vector. It can grow and shrink, you can push and pop 
 elements into and out of it,  and it is automatically freed when it goes out 
-of scope. Further, a `String` has its own buffer in memory; it is said to be 
-the *owner* of the memory where the bytes are stored. 
+of scope. In Rust, a string is the **owner** of the memory where the bytes that 
+make up the string are stored. 
 
-Since stack-allocated variables must have a known size at compile time, 
-only `String` variables retain ownership over their addresses in memory when 
-they're changed. 
+A **string slice**, on the other hgand, does not own any buffers in memory. 
+Instead, it *borrows* whatever is at an address from a different owner. Think 
+of a string slice as pointer or **borrowed reference** to a string owned by 
+either a different variable or the application itself. For this 
+reason, string slices are always immutable.
 
-A `&str`, on the other hand, is a *string slice*. It does not own any buffers 
-in memory, but rather, it *borrows* whatever is at an address from a different 
-owner. You can think of a `&str` as pointer or **borrowed reference** to a 
-string owned by either adifferent variable or the application itself. For this 
-reason, string slices are always immutable. 
+{{< expandable label="More on Strings and String slices" level="4">}}
+A string can change and a string slice cannot, so in general, use 
+strings when you have values that might change and use string slices 
+for values that won't. 
 
-## Should I use a String or a &str?
-
-A `String` can be mutable; a `&str` is always immutable.
-
-For example, in our markdown compiler, we will be using `String`s to hold the 
-value of each block of HTML code; if we were going to write 
-`<h1>Hello, world!</h1>`, we would `push()` the first tag, then the inner 
-content, then the closing tag. Using a string slice wouldn't make sense here 
-since the value of the `String` will change as we add ("push") data 
-into it. 
+For example, in our markdown compiler, we will be using `String` to hold the 
+value of our compiled HTML until we're ready to write it to a file. 
+Using a string slice wouldn't make sense here since the value of the `String` 
+will change as we add data to it.
 
 A `&str`, on the other hand, is a window into another string, whether that 
 string is a string literal (in which case the string slice would be static and 
 stack-allocated) or a `String` (in which case the string slice would be 
 heap-allocated).
+{{</expandable>}}
 
 ## Using strings
 
@@ -97,7 +87,7 @@ where Rust stored it.
 Our program will build and run just fine as long as we comment out our old 
 `get_version()` function. Ensure your `main.rs` looks like this now:
 
-{{<codecaption lang="rust" title="main.rs">}}
+```rust
 // Comment this out for now; we will come back to it soon
 /*fn get_version() -> u16 {
     1000
@@ -112,7 +102,7 @@ fn usage() {
 fn main() {
     usage();
 }
-{{</codecaption>}}
+```
 
 Go ahead and build and run it:
 
@@ -130,13 +120,13 @@ with a particular key.
 
 Let's take a look inside `Cargo.toml` right now, to see what we are working with:
 
-{{<codecaption lang="toml" title="Cargo.toml">}}
+```toml
 [package]
 name = "tinymd"
 version = "0.1.0"
 authors = ["Jesse Lawson <jesselawson@protonmail.com>"]
 edition = "2018"
-{{</codecaption>}}
+```
 
 Many other languages use manifest files like Rust's `Cargo.toml`, such as Node 
 (`package.json`) and Ruby (`Gemfile`). The information here is fairly 
@@ -175,20 +165,20 @@ to set these to whatever you would like.
 Go to the `Cargo.toml` file and add entries for description and homepage, then
 modify the name, authors, and version as you see fit:
 
-{{<codecaption lang="toml" title="Cargo.toml">}}
+```toml
 [package]
 name = "tinymd"
 version = "0.1.0"
 authors = ["Jesse Lawson <drwho@nsa.gov>"]
-edition = "2018"
-description = "A tiny markdown compiler based on Jesse's tutorials."
+edition = "2021"
+description = "A tiny markdown compiler from the book Getting Started with Rust."
 homepage = "https://jesselawson.org/rust"
-{{</codecaption>}}
+```
 
 *Note: The `edition` field lets you target a specific edition of Rust. Don't 
 change this; use the value that Cargo put in there for now.*
 
-Looking good. Next, we're going to create a function that gets us one of the 
+Looking good. Next, we'll create a function that gets us one of the 
 environment variables. Let's do the version first. Knowing that `env!()` takes a 
 single string key as an argument and returns the environment variable from the 
 manifest file, how do you think we would do that?
@@ -203,9 +193,9 @@ println!("Version: {}", the_version);
 // ...
 ```
 
-However, a smarter way to generate a banner is through a single function call. In 
+A more efficient way of generating the banner is through a single function call. In 
 other words, anytime we would need to print out the tool's banner, we should be 
 able to do it with a single function call: `usage()`. To do that, we would need 
 to move the version variable into the `usage()` function. While we're at it, 
 let's go ahead and encapsulate the work of getting the version out into its 
-own function--and replacing `get_version()` with something a little more helpful.
+own function&mdash;and replacing `get_version()` with something a little more helpful.
