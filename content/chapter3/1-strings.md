@@ -16,8 +16,8 @@ whereas an immutable variable cannot be changed.
 | A string | `String` | Can be mutable or immutable |
 | A string slice | `&str` | Is only immutable |
 
-Think of a **string** like a vector. It can grow and shrink, you can push and pop 
-elements into and out of it,  and it is automatically freed when it goes out 
+Think of a **string** like a vector; it can grow and shrink, you can push and pop 
+elements into and out of it, and it is automatically freed when it goes out 
 of scope. In Rust, a string is the **owner** of the memory where the bytes that 
 make up the string are stored. 
 

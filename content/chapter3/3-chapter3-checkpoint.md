@@ -9,10 +9,9 @@ prev_relref: "2-return-a-string.md"
 next_relref: "../chapter4/_index.md"
 ---
 
-With the usage banner complete, we are now ready to start building functionality into 
-our tool. Armed with new knowledge and confidence about creating strings, adding 
-characters to strings, and printing strings, we're now ready to begin parsing 
-command line arguments so that we can really dig in to the heart of this tool. 
+In this chapter, we got really familiar with how Rust deals with strings in 
+memory. Next, we'll begin parsing command line arguments and start working with 
+the filesystem.
 
 {{<checkpoint 
         chapter="chapter-3"

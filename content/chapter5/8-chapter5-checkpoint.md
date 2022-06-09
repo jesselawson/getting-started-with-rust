@@ -7,13 +7,11 @@ prev_relref: "7-writing-file.md"
 next_relref: "chapter6/_index.md"
 ---
 
-In this chapter, we fleshed out the meat and potatoes (or tofu and beans) of our 
-Markdown compiler. We developed confidence in opening a file, reading and 
-parsing that file one line at a time, then writing to a file. We also took a 
-deep dive into the basics of logical thinking for a very simple compiler. Now 
-that the tool is finished, it's time to use Cargo to build a release version 
-of tinymd--which we are going to do in the next and final chapter of this 
-tutorial. 
+In this chapter we built a Markdown compiler. We opened a file, read it into 
+memory, parsed it one line at a time, then wrote results to a file. Great job!
+
+All that's left to do is build a release version of the compiler&mdash;which we are 
+going to do in the next and final chapter of this book.
 
 {{<checkpoint 
         chapter="chapter-5"

@@ -7,12 +7,14 @@ prev_relref: "3-match-blocks.md"
 next_relref: "chapter5/_index.md"
 ---
 
-In this chapter, we developed confidence in our ability to describe how a Markdown 
-compiler works, and learned how to instantiate a vector by reading and parsing 
-command-line arguments in Rust. We also got a little familiar with `match`, and 
-passing an argument to a function. In the next chapter, we are going to implement 
-our Markdown compiler logic and open a file, read it line-by-line, translate it 
-into HTML, and write the HTML to a new file. It's going to be fun!
+In this chapter, we learned about how a markdown compiler works, and we started 
+working more closely with strings and string slices while piecing together 
+functionality with conditional logic.
+
+Next, we'll implement our Markdown compiler logic and open a file, read it 
+line-by-line, translate it into HTML, and write the HTML to a new file. 
+
+It's going to be fun!
 
 {{<checkpoint 
         chapter="chapter-4"

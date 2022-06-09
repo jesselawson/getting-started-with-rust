@@ -9,6 +9,10 @@ prev_relref: "3-integer-variable.md"
 next_relref: "../chapter3/_index.md"
 ---
 
+In this chapter, we learned about functions and integer variables. Next, we'll 
+start diving into how Rust thinks about memory as we create both dynamic and 
+static strings to hold different kinds of information. 
+
 {{<checkpoint 
         chapter="chapter-2"
         check="second"
