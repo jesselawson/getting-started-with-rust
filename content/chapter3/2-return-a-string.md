@@ -166,7 +166,7 @@ fn usage() {
 ```
 
 Any variable that we want to be able to change after declaration needs to have the 
-`mut` keyword, otherwise the variable will be considered immutable (i.e., unchangeable).
+`mut` keyword, otherwise the variable will be considered immutable.
 
 With this new knowledge, we can now create a `String` variable that we will use 
 to build the first line of the banner.

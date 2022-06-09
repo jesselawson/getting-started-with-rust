@@ -8,7 +8,8 @@ next_relref: "2-return-a-string.md"
 ---
 
 Rust has two kinds of string types: **strings** and **string slices**, the 
-primary difference being their mutability.
+primary difference being their mutability; a mutable variable can be changed, 
+whereas an immutable variable cannot be changed.
 
 | Name | Type | Mutability |
 | :--- | :--- | :--------- | 
