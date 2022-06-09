@@ -23,11 +23,11 @@ fn get_version() -> String {
 }
 ```
 
-Changing the return value to a `String` is easy enough, but I want to take this 
-function a different way. Instead of just getting our version--which would mean 
+Changing the return value to a `String` is good, but I want to take this 
+function a different way. Instead of just getting our version&mdash;which would mean 
 we would create separate functions for all of the other manifest values we want 
-to retrieve--let's replace `get_version()` with a function that returns more 
-than just one value from the manifest file. 
+to retrieve&mdash;let's replace `get_version()` with a function that can 
+retrieve more than just one value from the manifest file. 
 
 When the `usage()` function prints the banner, I want it to print something like 
 this:
@@ -57,23 +57,21 @@ $ tinymd something.md
 tinymd (v0.1.0), a tiny and mostly useless markdown compiler.
 Compiling something.md...
 Done! Your new file is something.html.
-$
 ```
 
 Imagining how we want our tool to behave is a good way to think about what needs 
-to be done to get there. In the above example, you can see that the first line 
-of the banner will be printed regardless of what we are doing. So it makes sense 
-to create a separate function that can generate that for us. 
+to be done to get there. 
+
+Since we're always going to print the first line, let's create a separate 
+function to prepare it for us.
 
 To do this, we are going to create a `String` variable and then push the title, 
-the version, and then the description to it. This means that the variable needs 
-to be mutable (i.e., able to be changed), and brings us to an important concept 
-in Rust: *all variables are immutable by default*.
+the version, and the description into it. This means that the variable needs 
+to be **mutable**, and brings us to an important concept in Rust: *all variables are immutable by default*.
 
 Rust makes all variables immutable by default as part of a memory strategy that 
-guarantees no memory leaks. It's one of the nuances that beginners tend to get 
-hung up on in Rust, but once you master it you will see just how clever this 
-way of thinking about writing programs is. 
+guarantees no memory leaks. If you want to modify a variable, you must first 
+create a mutable reference to it.
  
 To illustrate how Rust treats all variables as immutable unless told otherwise, 
 let's try to modify the value of `the_version` after declaring it:
@@ -128,10 +126,11 @@ To learn more, run the command again with --verbose.
 ```
 
 You are now witnessing the power of Rust's development toolchain: the integrated 
-**borrow-checker**, Rust's smart compiler, which sees what you are doing, tells 
-you what you're doing wrong, and *then suggests a way to fix it*. Though there 
-is a lot of output here, I want you to focus your attention on three parts 
-specifically:
+**borrow-checker**, Rust's smart compiler. My favorite part about this is how 
+it will not only tell you when you're doing something wrong, it also *suggests a 
+way to fix it*. 
+
+Let's take a closer look at three parts of this output: 
 
 * `warning: value assigned to 'the_version' is never read`. Here, Rust is 
 telling us that we assigned a value to `the_version` but then never used it. 
@@ -148,21 +147,14 @@ compiler aborts.
 showing us how to turn `the_version` into a mutable variable. Only mutable
 variables can have their values changed. Otherwise, treat them like a static.
 
-If you're using a modern terminal window, the output's colors help direct our
-attention to where we need to focus:
-
-![](/images/tinymd6.png)
-
-The red text there helps us see what the problem is. 
-
 How do you think we should fix this?
 
 (Go to your code editor and try to fix it using the output from the `cargo build`
 command as guidance. I'll give you a hint: you have to add a three-letter keyword 
 somewhere...)
 
-The answer is, of course, to add the `mut` keyword after `let` in the declaration
-of `the_version`:
+The answer is to add the `mut` keyword after `let` in the declaration of 
+`the_version`:
 
 ```rust
 fn usage() {
