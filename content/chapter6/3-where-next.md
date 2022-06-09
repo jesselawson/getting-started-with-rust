@@ -53,7 +53,12 @@ here, can you please let me know? Thanks!_
 
 **What now?**
 
-That's it. That's the end of the book. I hope you enjoyed the journey.
+That's it. That's the end of the book. I hope you enjoyed the journey. For more about Rust, consider [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) 
+to learn more about the language and [High Assurance Rust](https://highassurance.rs/) 
+for a very deep dive into Rust and systems engineering. I have 
+another book about Rust in the works that will immediately follow 
+this one under active development. Stay connected on social 
+media 
 
 _-Jesse_
 
