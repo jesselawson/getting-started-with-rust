@@ -9,7 +9,7 @@
     </label>
   </div>
   {{- if $.GitInfo -}}
-    <p><strong>See something? </strong><a href="{{ .Site.Params.githubRepoBaseUrl }}{{ .Page.File.Path }}" target="_blank" rel="noopener">Make a contribution!</a></p>
+    <p><strong>See something? </strong><a href="{{ .Site.Params.githubRepoBaseUrl }}blob/main/{{ .Page.File.Path }}" target="_blank" rel="noopener">Make a contribution!</a></p>
   {{- else -}}
     &nbsp;
   {{- end -}}
