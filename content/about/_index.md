@@ -44,13 +44,13 @@ next_relref: "about/1-what-is-markdown.md"
 ---
 
 Hi 👋 I'm Jesse, and this is a free online book for anyone who is curious about 
-the Rust programming language but doesn't know where to start. My teaching 
-philosophy is _"move slow and make things."_
+the Rust programming language. I'm self-taught, and this is geared toward folks 
+like me who learn by doing. My philosophy is _"move slow and make things."_
 
-Over the next six chapters, we will learn about Rust while building a 
-rudimentary Markdown compiler&mdash;a command-line interface tool that takes 
-a Markdown file as input, converts it to HTML, and writes that HTML to another 
-file.
+This is about the length of a weekend project. Over the next six chapters, 
+we will learn about Rust while building a rudimentary Markdown compiler&mdash;a 
+command-line interface tool that takes a Markdown file as input, converts it to 
+HTML, and writes that HTML to another file.
 
 For example:
 
