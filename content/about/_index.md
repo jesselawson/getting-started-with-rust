@@ -64,7 +64,7 @@ $ cat some.html
 $ 
 ```
 
-If you'd like to see what we will be building, check out [the repo on Github](https://github.com/jesselawson/tinymd).
+If you'd like to see what we'll be building, check out [the repo on Github](https://github.com/jesselawson/tinymd).
 
 {{< expandable label="Learning Objectives" level="4" >}}
 

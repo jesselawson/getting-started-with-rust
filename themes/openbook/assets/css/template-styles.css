@@ -90,8 +90,8 @@ p + p {
   margin-top: 0;
 }
 a {
-    text-decoration: none;
-    border-bottom: 1px solid;
+    
+    
 }
 abbr {
     text-decoration: none;
@@ -1181,8 +1181,8 @@ figure.code.objectives div.objectives-wrapper p {
 
 .subsection-active, .subsection-item {
     color: var(--primary-content-color);
-    padding: .5em 2em;
-    margin: .1em 1em .1em .5em;
+    padding: .3em 2em;
+    margin: 0em 1em 0em .5em;
     
 }
 
@@ -1432,7 +1432,6 @@ summary {
 .navtitletext {
     font-size: 1.5em;
     text-align: center;
-    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
 }
 
 .navsubtitletext {

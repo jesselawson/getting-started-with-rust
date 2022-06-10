@@ -18,10 +18,9 @@ In _Getting Started with Rust_, we will create a Markdown compiler called
 HTML, then write the HTML to a new file. 
 
 To start, let's create a new project with `cargo`, the package manager and 
-project building tool that comes along with the Rust compiler when you 
-[installed Rust](https://rustup.rs). 
+project building tool that comes from [installing Rust](https://rustup.rs). 
 
-We will scafford this and all projects in Rust using the `cargo` tool, passing 
+We will scaffold this and all projects in Rust using the `cargo` tool, passing 
 the `new` argument and specifying what we want:
 
 ```

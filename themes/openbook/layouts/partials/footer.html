@@ -8,12 +8,12 @@
       <span aria-hidden="true"></span>
     </label>
   </div>
-  {{ with .Site.Params.footer }}
-    {{ . | markdownify }}
-  {{ end }}
   {{- if $.GitInfo -}}
-    <br/><strong>Latest commit</strong>: <a href="https://github.com/jesselawson/getting-started-with-rust/commit/{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>
+    <p><strong>See something? </strong><a href="{{ .Site.Params.githubRepoBaseUrl }}{{ .Page.File.Path }}" target="_blank" rel="noopener">Make a contribution!</a></p>
   {{- else -}}
     &nbsp;
   {{- end -}}
+  {{ with .Site.Params.footer }}
+    {{ . | markdownify }}
+  {{ end }}
 </footer>

@@ -43,7 +43,6 @@ name = "6: Release build"
 url = "/chapter6"
 weight = 7
 
-
 [params]
     description = "Dive head-first into Rust from scratch, learning the basics by building a markdown compiler."
     homeMetaContent = "A beginner-friendly, free, online book about the Rust programming language."
@@ -51,6 +50,7 @@ weight = 7
     showThemeSwitcher = false
     navTitleText = "Getting Started with Rust"
     logoAlt = "Getting Started with Rust online book"
+    githubRepoBaseUrl = "https://github.com/jesselawson/getting-started-with-rust/"
     
 
 [markup.goldmark.renderer]
