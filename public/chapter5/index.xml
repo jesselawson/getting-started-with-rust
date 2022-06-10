@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>5: Reading &amp; writing files on Getting Started with Rust</title>
+    <link>https://jesselawson.org/chapter5/</link>
+    <description>Recent content in 5: Reading &amp; writing files on Getting Started with Rust</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jesselawson.org/chapter5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Opening &amp; reading files</title>
+      <link>https://jesselawson.org/chapter5/files/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/files/</guid>
+      <description>The primary function that will contain the logic of our Markdown compiler is parse_markdown_file(), which takes a single argument: a string slice (&amp;amp;str) that corresponds to the Markdown file we want to create.
+Let&amp;rsquo;s go ahead and create that dummy file right now. Copy all of the below text into a new file called test.md, and save it in the root of your Rust project. The root of your Rust project also contains the manifest file (Cargo.</description>
+    </item>
+    
+    <item>
+      <title>Designing our parser</title>
+      <link>https://jesselawson.org/chapter5/parsing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/parsing/</guid>
+      <description>At this point in our program, file is our way of accessing the file passed into the function. With the file open successfully, we can start planning how we will read and parse it.
+While this is not a course on compiler design, we need to think about how a compiler looks at a file. When the program gets to the first character in the file, which is a # (indicating a heading tag), it needs to know that the rest of the line will contain all the text within a heading tag.</description>
+    </item>
+    
+    <item>
+      <title>Making a `Path` variable</title>
+      <link>https://jesselawson.org/chapter5/path-vars/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/path-vars/</guid>
+      <description>Rust goes to great lengths to make sure that your program is cross-platform. One of the ways it does this is by providing the Path module, which helps format strings and string slices into OS-specific path types. The official Rust docs recommend to use a Path variable instead of a string slice anytime you&amp;rsquo;re working with filenames. This is one of several special tools from Rust that comes from Rust&amp;rsquo;s std library&amp;ndash;which, for the purposes of this tutorial, you can think of as like a namespace.</description>
+    </item>
+    
+    <item>
+      <title>Line-by-line parsing</title>
+      <link>https://jesselawson.org/chapter5/line-by-line-parsing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/line-by-line-parsing/</guid>
+      <description>Now it&amp;rsquo;s time to actually do something with every file line that we read. To do that, we want to loop through the lines in the file that we are given with the reader variable. This reader variable, being assigned the value of the BufReader::new(file) call, now gives us a .lines() method that we can iterate over with a simple for-loop.
+In Rust, a for-loop&amp;rsquo;s syntax is &amp;ldquo;for x in y&amp;rdquo;, like this:</description>
+    </item>
+    
+    <item>
+      <title>Getting the first character of a line</title>
+      <link>https://jesselawson.org/chapter5/first-character/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/first-character/</guid>
+      <description>With a line from the Markdown file represented as a string variable called line_contents, we can now figure out what kind of line this is. There are really only two kinds of lines we care about for this naive Markdown compiler: first-order headings and paragraphs.
+If a line starts with a hash (#) symbol, then it&amp;rsquo;s a first-order heading. If, however, it starts with any other alphanumeric value, it&amp;rsquo;s a paragraph.</description>
+    </item>
+    
+    <item>
+      <title>Compiling Markdown to HTML</title>
+      <link>https://jesselawson.org/chapter5/compiling/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/compiling/</guid>
+      <description>Let&amp;rsquo;s now write some HTML based on what the first character of the line is.
+Remember that first_char is a vector that only has one element. To see it, we will use the pop() method that Rust provides to vectors, which will not return the first character of the line, but rather, an Option object.
+Just like Result, Option is made up of two pieces&amp;ndash;but they&amp;rsquo;re called Some() and None() instead of Result&amp;rsquo;s Ok() and Err().</description>
+    </item>
+    
+    <item>
+      <title>Writing to a file</title>
+      <link>https://jesselawson.org/chapter5/writing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/writing/</guid>
+      <description>Remember when we had to include those Rust libraries when we wanted to open and read a file into a buffer? We will have to do the same thing for creating and writing to a file. Fortunately, it&amp;rsquo;s only one addition.
+At the top of main.rs, add a use block for the Write library:
+1  usestd::io::Write;  Now let&amp;rsquo;s head back to the bottom of the parse_markdown_file() function, and think about all we need to do.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 5 Checkpoint</title>
+      <link>https://jesselawson.org/chapter5/checkpoint/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/checkpoint/</guid>
+      <description>In this chapter, we fleshed out the meat and potatoes (or tofu and beans) of our Markdown compiler. We developed confidence in opening a file, reading and parsing that file one line at a time, then writing to a file. We also took a deep dive into the basics of logical thinking for a very simple compiler. Now that the tool is finished, it&amp;rsquo;s time to use Cargo to build a release version of tinymd&amp;ndash;which we are going to do in the next and final chapter of this tutorial.</description>
+    </item>
+    
+  </channel>
+</rss>

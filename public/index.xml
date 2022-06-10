@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome! on Getting Started with Rust</title>
+    <link>https://jesselawson.org/</link>
+    <description>Recent content in Welcome! on Getting Started with Rust</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jesselawson.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How the Markdown compiler works</title>
+      <link>https://jesselawson.org/chapter4/how-the-markdown-compiler-works/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter4/how-the-markdown-compiler-works/</guid>
+      <description>Now is a good time to start thinking about how we want to interact with our tiny markdown compiler. At its very core, a command-line markdown compiler should take in the name of a markdown file and then turn it into valid HTML file. Our tool is going to be very naive: it will accept only one argument (the name of the markdown file), it will expect that file to end in .</description>
+    </item>
+    
+    <item>
+      <title>Opening &amp; reading files</title>
+      <link>https://jesselawson.org/chapter5/files/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/files/</guid>
+      <description>The primary function that will contain the logic of our Markdown compiler is parse_markdown_file(), which takes a single argument: a string slice (&amp;amp;str) that corresponds to the Markdown file we want to create.
+Let&amp;rsquo;s go ahead and create that dummy file right now. Copy all of the below text into a new file called test.md, and save it in the root of your Rust project. The root of your Rust project also contains the manifest file (Cargo.</description>
+    </item>
+    
+    <item>
+      <title>Releasing &amp; sharing our tool</title>
+      <link>https://jesselawson.org/chapter6/releasing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter6/releasing/</guid>
+      <description>Up until now, every time we have built our project using cargo build or cargo run to trigger a build, our executable (tinymd.exe) has been built in the &amp;ldquo;debug&amp;rdquo; folder that is located inside the &amp;ldquo;target&amp;rdquo; folder in the project root:
+1 2 3 4 5  C:\RustTutorials\ tinymd\ \target \debug tinymd.exe   When you run cargo build with the --release flag, Rust will do a special optimization build of your project, and store it in a &amp;ldquo;release&amp;rdquo; folder:</description>
+    </item>
+    
+    <item>
+      <title>The structure of new Rust projects</title>
+      <link>https://jesselawson.org/chapter1/structure/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter1/structure/</guid>
+      <description>Inside a newly created Rust project, you&amp;rsquo;ll find three things:
+ A src folder, where your Rust code (Rust files end in .rs) lives A .gitignore file, because version control thinking is built-in A Cargo.toml file, which is the manifest file. This is the project configuration and dependencies script. This would be like the Gemfile in Ruby, or package.json in Node.  Anytime we create a new project like this, Rust sticks in some default code for us.</description>
+    </item>
+    
+    <item>
+      <title>What is Markdown?</title>
+      <link>https://jesselawson.org/about/markdown/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/about/markdown/</guid>
+      <description>If you&amp;rsquo;re already familiar with Markdown, feel free to skip ahead.
+Markdown is a minimalistic language for writing HTML content very quickly. It gives us the ability to write text-based documents that are legible and small, while compiling into vaid HTML. It makes drafting, updating, and publishing very easy, and is a common tool used among programmers in all lines of work.
+A Markdown compiler&amp;rsquo;s job is to convert &amp;ldquo;markdown&amp;rdquo; content into valid HTML.</description>
+    </item>
+    
+    <item>
+      <title>Designing our parser</title>
+      <link>https://jesselawson.org/chapter5/parsing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/parsing/</guid>
+      <description>At this point in our program, file is our way of accessing the file passed into the function. With the file open successfully, we can start planning how we will read and parse it.
+While this is not a course on compiler design, we need to think about how a compiler looks at a file. When the program gets to the first character in the file, which is a # (indicating a heading tag), it needs to know that the rest of the line will contain all the text within a heading tag.</description>
+    </item>
+    
+    <item>
+      <title>Final checkpoint</title>
+      <link>https://jesselawson.org/chapter6/end/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter6/end/</guid>
+      <description>Congratulations!
+You&amp;rsquo;ve created a working CLI tool that converts Markdown to HTML, and you wrote it all yourself.
+If you made it this far, I want you to know that I am very proud of all the work you have done here. I hope that this experience has helped you build confidence with Rust so that you are well-equipped mentally and emotionally to start tackling some of the more difficult aspects of this really fun and unique language.</description>
+    </item>
+    
+    <item>
+      <title>Parsing command-line arguments</title>
+      <link>https://jesselawson.org/chapter4/parsing-command-line-args/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter4/parsing-command-line-args/</guid>
+      <description>The idea behind parsing command line arguments is fairly straight forward. Given an argument, perform some operation based on what that argument is. In the case of our Markdown compiler, we really only care about one argument&amp;ndash;and we hope that it&amp;rsquo;s the name of a Markdown file.
+The way Rust parses arguments is to collect them all up and store them in an iterable object. This is also how most other languages do it, too; once the collection happens, you will generally want to do a for loop or some kind of switch statement that will parse the arguments first by the number of arguments (since the number of arguments can trigger certain operations, if we wanted) and then by the value of those arguments.</description>
+    </item>
+    
+    <item>
+      <title>Creating a string variable in Rust</title>
+      <link>https://jesselawson.org/chapter3/create-string/</link>
+      <pubDate>Fri, 03 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter3/create-string/</guid>
+      <description>In most languages, the concept of strings have been abstracted away to just text between quotes &amp;quot;like this&amp;quot;. Rust requires that we become very familiar with how a string is understood by a computer, which is as a collection of bytes. In Rust&amp;rsquo;s case, these bytes are guaranteed to be valid UTF-8.
+Every language has a way to implement a collection of bytes in one of two ways: heap-allocated strings, which are dynamically created at runtime and during the application&amp;rsquo;s lifecycle, and stack-allocated strings, which are allocated at compile-time.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 1 Checkpoint</title>
+      <link>https://jesselawson.org/chapter1/checkpoint/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter1/checkpoint/</guid>
+      <description>Let&amp;rsquo;s recap:
+ Create a new Rust project with cargo new --bin my-neat-cli Build and run your project with cargo run  In the next section, we&amp;rsquo;ll dive into the Rust language and start customizing our markdown compiler to make it feel like an actual program.
+ 🚀 First Checkpoint Reached! 🚀   &#34;The best way out is always through.&#34; &amp;mdash;Robert Frost  Before continuing, you should be able to confidently:</description>
+    </item>
+    
+    <item>
+      <title>Create a function in Rust</title>
+      <link>https://jesselawson.org/chapter2/create-function/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter2/create-function/</guid>
+      <description>The first thing we are going to write in Rust is a function.
+A function is defined with the fn keyword, like this:
+1 2 3  fn main(){println!(&amp;#34;Hello, world!&amp;#34;);}  Above our main() function, let&amp;rsquo;s create a new function called usage(). Inside it, we&amp;rsquo;ll use the same used to write &amp;quot;Hello, world!&amp;quot; to output the name and a short description of our tool:
+1 2 3 4 5 6 7  fn usage(){println!</description>
+    </item>
+    
+    <item>
+      <title>Special thanks</title>
+      <link>https://jesselawson.org/about/thanks/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/about/thanks/</guid>
+      <description>Many people have reached out with helpful feedback to improve this book. While not an exhaustive list, these are some of the folks from our community who went above and beyond to help with fine-tuning:
+ Jordan Terrell Michael Leonard Nick Radcliffe https://github.com/eddy147/tinymd Eli Paul Hyun Chong Caleb Meyer Matt White Ofem Eteng Nethanel Elzas  </description>
+    </item>
+    
+    <item>
+      <title>Challenges</title>
+      <link>https://jesselawson.org/chapter6/next/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter6/next/</guid>
+      <description>I hope you&amp;rsquo;ve enjoyed this experience with Rust, because if you don&amp;rsquo;t enjoy it at this point I really don&amp;rsquo;t think you&amp;rsquo;ll enjoy what comes after this: traits and lifetimes and, depending on what you&amp;rsquo;re building, mutexes and unsafe and all sorts of little goodies. We&amp;rsquo;ve really only begun to scratch the surface of what you can do with Rust!
+As far as our tiny Markdown compiler goes, I&amp;rsquo;ve added some challenges below for you to continue on your journey.</description>
+    </item>
+    
+    <item>
+      <title>Making a `Path` variable</title>
+      <link>https://jesselawson.org/chapter5/path-vars/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/path-vars/</guid>
+      <description>Rust goes to great lengths to make sure that your program is cross-platform. One of the ways it does this is by providing the Path module, which helps format strings and string slices into OS-specific path types. The official Rust docs recommend to use a Path variable instead of a string slice anytime you&amp;rsquo;re working with filenames. This is one of several special tools from Rust that comes from Rust&amp;rsquo;s std library&amp;ndash;which, for the purposes of this tutorial, you can think of as like a namespace.</description>
+    </item>
+    
+    <item>
+      <title>The `match` block</title>
+      <link>https://jesselawson.org/chapter4/match/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter4/match/</guid>
+      <description>With the arguments collected into args, we now want to make sure that there are only two of them. Recall that our goal is to accept just one argument: the name of a Markdown file to parse. This means that we have two total elements in the args vector: the name of the program, and the name of the Markdown file.
+We only handle invocation that includes two arguments, so the length of the args vector should be 2.</description>
+    </item>
+    
+    <item>
+      <title>Return a string from a function</title>
+      <link>https://jesselawson.org/chapter3/return-string-from-function/</link>
+      <pubDate>Sat, 04 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter3/return-string-from-function/</guid>
+      <description>Recall that there are two types of strings in Rust: there&amp;rsquo;s the vector-esque String, and the string slice &amp;amp;str. We use a String when we want a string that we can modify like we would an array (pushing and popping characters and/or strings to and from it), and &amp;amp;str when we only need a slice of an existing string.
+We can modify get_version() to return a string by modifying the return value of the function.</description>
+    </item>
+    
+    <item>
+      <title>Return a value from a function</title>
+      <link>https://jesselawson.org/chapter2/return-value-from-function/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter2/return-value-from-function/</guid>
+      <description>In this section, we&amp;rsquo;re going to create a function called get_version() that will return some arbitrary version number of our tool.
+We saw earlier that a function with no arguments and no return value is written like this:
+1 2  fn get_version(){}  When we want a function to return a value, we append -&amp;gt; and the return value&amp;rsquo;s type to the declaration, like this:
+1 2  fn get_version()-&amp;gt; u16 {}  Let&amp;rsquo;s say our version number is 1000, and we want to return that from a function and then print it out.</description>
+    </item>
+    
+    <item>
+      <title>Send feedback</title>
+      <link>https://jesselawson.org/about/feedback/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/about/feedback/</guid>
+      <description>I want to help people learn, so if there&amp;rsquo;s something I can do to improve this, please let me know. You are welcome and encouraged to submit feedback however works best for you:
+Want to report a typo or make a small suggestion? 🔥 Open up a new issue!
+Have a more significant change to recommend? ✨ Feel free to clone the repo, make some changes, and submit a PR!</description>
+    </item>
+    
+    <item>
+      <title>Line-by-line parsing</title>
+      <link>https://jesselawson.org/chapter5/line-by-line-parsing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/line-by-line-parsing/</guid>
+      <description>Now it&amp;rsquo;s time to actually do something with every file line that we read. To do that, we want to loop through the lines in the file that we are given with the reader variable. This reader variable, being assigned the value of the BufReader::new(file) call, now gives us a .lines() method that we can iterate over with a simple for-loop.
+In Rust, a for-loop&amp;rsquo;s syntax is &amp;ldquo;for x in y&amp;rdquo;, like this:</description>
+    </item>
+    
+    <item>
+      <title>Passing arguments to functions</title>
+      <link>https://jesselawson.org/chapter4/function-args/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter4/function-args/</guid>
+      <description>The last thing we need to do in the main() function is to pass the second argument into the function that parses the markdown file&amp;ndash;parse_markdown_file(). To do this, we need to change the declaration of parse_markdown_file() to accept a single argument: a string slice that is the filename to parse.
+To add an argument to a function, you declare it the same way you would a regular variable, except this time you can omit the let.</description>
+    </item>
+    
+    <item>
+      <title>Create an integer variable</title>
+      <link>https://jesselawson.org/chapter2/integer-variable/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter2/integer-variable/</guid>
+      <description>The first kind of variable we will learn about is the integer. All variables in Rust are declared by putting their type after their name. For example, if we want to create an integer variable to hold the version of our application, we would declare a variable version like this:
+1 2  letversion: u16;// I&amp;#39;m using u16 for the sake of example only. This could be // a u8, too.</description>
+    </item>
+    
+    <item>
+      <title>Checkpoint</title>
+      <link>https://jesselawson.org/chapter4/checkpoint/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter4/checkpoint/</guid>
+      <description>In this chapter, we developed confidence in our ability to describe how a Markdown compiler works, and learned how to instantiate a vector by reading and parsing command-line arguments in Rust. We also got a little familiar with match, and passing an argument to a function. In the next chapter, we are going to implement our Markdown compiler logic and open a file, read it line-by-line, translate it into HTML, and write the HTML to a new file.</description>
+    </item>
+    
+    <item>
+      <title>Getting the first character of a line</title>
+      <link>https://jesselawson.org/chapter5/first-character/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/first-character/</guid>
+      <description>With a line from the Markdown file represented as a string variable called line_contents, we can now figure out what kind of line this is. There are really only two kinds of lines we care about for this naive Markdown compiler: first-order headings and paragraphs.
+If a line starts with a hash (#) symbol, then it&amp;rsquo;s a first-order heading. If, however, it starts with any other alphanumeric value, it&amp;rsquo;s a paragraph.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 3 Checkpoint</title>
+      <link>https://jesselawson.org/chapter3/checkpoint/</link>
+      <pubDate>Sat, 04 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter3/checkpoint/</guid>
+      <description>With the usage banner complete, we are now ready to start building functionality into our tool. Armed with new knowledge and confidence about creating strings, adding characters to strings, and printing strings, we&amp;rsquo;re now ready to begin parsing command line arguments so that we can really dig in to the heart of this tool.
+ 🚀 Third Checkpoint Reached! 🚀   &#34;It&amp;#39;s not that I&amp;#39;m so smart, it&amp;#39;s just that I stay with problems longer.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 2 Checkpoint</title>
+      <link>https://jesselawson.org/chapter2/checkpoint/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter2/checkpoint/</guid>
+      <description>🚀 Second Checkpoint Reached! 🚀   &#34;Success is stumbling from failure to failure with no loss of enthusiasm.&#34; &amp;mdash;Winston Churchill  Before continuing, you should be able to confidently:
+All our code up to this point is available here on GitHub.
+You may also wish to go back and review the second chapter.
+If you have a comment, concern, or complaint about this chapter, send me some feedback.</description>
+    </item>
+    
+    <item>
+      <title>Compiling Markdown to HTML</title>
+      <link>https://jesselawson.org/chapter5/compiling/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/compiling/</guid>
+      <description>Let&amp;rsquo;s now write some HTML based on what the first character of the line is.
+Remember that first_char is a vector that only has one element. To see it, we will use the pop() method that Rust provides to vectors, which will not return the first character of the line, but rather, an Option object.
+Just like Result, Option is made up of two pieces&amp;ndash;but they&amp;rsquo;re called Some() and None() instead of Result&amp;rsquo;s Ok() and Err().</description>
+    </item>
+    
+    <item>
+      <title>Writing to a file</title>
+      <link>https://jesselawson.org/chapter5/writing/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/writing/</guid>
+      <description>Remember when we had to include those Rust libraries when we wanted to open and read a file into a buffer? We will have to do the same thing for creating and writing to a file. Fortunately, it&amp;rsquo;s only one addition.
+At the top of main.rs, add a use block for the Write library:
+1  usestd::io::Write;  Now let&amp;rsquo;s head back to the bottom of the parse_markdown_file() function, and think about all we need to do.</description>
+    </item>
+    
+    <item>
+      <title>Chapter 5 Checkpoint</title>
+      <link>https://jesselawson.org/chapter5/checkpoint/</link>
+      <pubDate>Sun, 05 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/chapter5/checkpoint/</guid>
+      <description>In this chapter, we fleshed out the meat and potatoes (or tofu and beans) of our Markdown compiler. We developed confidence in opening a file, reading and parsing that file one line at a time, then writing to a file. We also took a deep dive into the basics of logical thinking for a very simple compiler. Now that the tool is finished, it&amp;rsquo;s time to use Cargo to build a release version of tinymd&amp;ndash;which we are going to do in the next and final chapter of this tutorial.</description>
+    </item>
+    
+    <item>
+      <title>How to install Rust</title>
+      <link>https://jesselawson.org/prereqs/1-install-rust-tutorial/</link>
+      <pubDate>Sat, 28 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jesselawson.org/prereqs/1-install-rust-tutorial/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

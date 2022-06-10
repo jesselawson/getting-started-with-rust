@@ -1,0 +1,46 @@
+{{ $module := .Params.chapter }}
+{{ $checkpoint := .Params.check }}
+{{ $gist := .Params.gist }}
+{{ $module_link := printf "../../%s/_index.md" $module }}
+{{ $quote := .Params.quote }}
+{{ $quote_author := .Params.author }}
+<figure class="code-objectives-checkpoint checkpoint">
+    <figcaption>
+      <h3 class="center">🚀 {{ humanize $checkpoint }} Checkpoint Reached! 🚀</h3>
+    </figcaption>
+    <div class="checkpoint-wrapper">
+      <div class="checkpoint-wrapper-container">
+      {{ if $quote }}
+      <blockquote>
+        "{{$quote}}"
+        {{ if $quote_author }}
+        <footer>&mdash;{{$quote_author}}</footer>
+        {{ end }}
+      </blockquote>
+      {{ end }}
+      <p>Before continuing, you
+      should be able to confidently:</p>
+      
+      {{ $num := strings.TrimLeft "chapter-" $module }}
+      {{ $module_link := printf "%s%s" "chapter" $num }}
+
+      {{ range $.Page.Params.slos }}
+      
+      {{ if eq .number ($num) }}
+      <ul class="checkmark-lists">
+      {{ range .objectives }}
+      <li> {{ . }}</li>
+      {{ end }}
+      </ul>
+      {{ end }}
+      {{ end }}
+
+      {{ if $gist }}
+      <p><em>All our code up to this point is available <a href="{{ $gist }}">here on GitHub</a>.</em></p>
+      {{ end }}
+      <p>You may also wish to go back and <a href="{{ relref . $module_link }}">review the {{ $checkpoint }} chapter</a>.</p>
+      <p style="font-weight: normal"><a href="{{ .Site.Params.githubRepoBaseUrl }}{{ .Page.File.Path }}">Make a contribution</a></p>
+    </div>
+    </div>
+</figure>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  {{ partial "head.html" . }}
+  <body class="line-numbers">
+    <a href="#main">{{ T "skip_to_content" }}</a>
+    {{ partial "noscript.html" . }}
+    {{ partial "svg.html" . }}
+    <div class="wrapper">
+      {{ partial "header.html" . }}
+      <div class="main-and-footer">
+        <div>
+          <div class="main-inner-wrapper">
+          {{ block "main" . }}{{ end }}
+          {{ if ne .Site.Params.moveFooterToHeader true }}
+            {{ partial "footer.html" . }}
+          {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ partial "script.html" . }}
+    {{ partial "katex.html" . }}
+    {{ partial "google-analytics-async.html" . }}
+  </body>
+</html>

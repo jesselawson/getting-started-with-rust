@@ -1,0 +1,50 @@
+<nav id="patterns-nav" class="patterns" role="navigation">
+  <h2 class="vh">{{ T "nav_main_navigation" }}</h2>
+  <button id="menu-button" aria-expanded="false">
+    <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+      <use xlink:href="#menu"></use>
+    </svg>
+    {{ T "nav_button_menu" }}
+  </button>
+  {{ $current := . }}
+  <ul id="patterns-list">
+  {{ range .Site.Menus.nav }}
+    <li class="pattern">
+      {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+      {{ $active = or $active (eq .Name $current.Title) }}
+      {{ $active = or $active (and (eq .Name "Blog") (eq $current.Section "post")) }}
+      {{ $active = or $active (and (eq .Name "Tags") (eq $current.Section "tags")) }}
+      {{ $active = or $active (and (eq .Name "About this book") (eq $current.Section "about")) }}
+      {{ $active = or $active (and (eq .Name "1: A new project") (eq $current.Section "chapter1")) }}
+      {{ $active = or $active (and (eq .Name "2: Variables & functions") (eq $current.Section "chapter2")) }}
+      {{ $active = or $active (and (eq .Name "3: Strings & memory") (eq $current.Section "chapter3")) }}
+      {{ $active = or $active (and (eq .Name "4: Compiler logic") (eq $current.Section "chapter4")) }}
+      {{ $active = or $active (and (eq .Name "5: Reading & writing files") (eq $current.Section "chapter5")) }}
+      {{ $active = or $active (and (eq .Name "6: Release build") (eq $current.Section "chapter6")) }}
+      <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">{{ .Name | markdownify}}</span>
+        
+      </a>
+    </li>
+    {{ if $active }}
+
+      {{ range where site.RegularPages "Section" $current.Section }}
+        <p class="{{ if eq $current.Title .Title }}subsection-active{{ else }}subsection-item{{ end }}"><a class="no-beans-for-this-inline-code" href="{{ .Permalink }}">{{ .Name | markdownify }}</a></p>
+      {{end}}
+
+      {{ range site.RegularPages }}
+        {{ if eq .Title $current.Title }}
+ 
+          {{ .TableOfContents }}
+        {{ end }}
+      
+      {{ end }}
+
+    {{ end }}
+
+  {{ end }}
+  </ul>
+</nav>

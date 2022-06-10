@@ -1,0 +1,17 @@
+name = "openbook"
+license = "MIT"
+licenselink = "https://github.com/jesselawson/open-book/blob/master/LICENSE"
+description = "A child of the Cupper theme, optimized for online learning."
+homepage = "https://github.com/jesselawson/open-book"
+tags = ["accessible", "blog", "documentation", "dark"]
+features = ["accessible", "blog", "documentation", "dark"]
+min_version = "0.81.0"
+
+[author]
+  name = "Jesse Lawson"
+  homepage = "https://jesselawson.org/"
+
+[original]
+  name = "openbook"
+  homepage = "https://thepaciellogroup.github.io/cupper/"
+  repo = "https://github.com/ThePacielloGroup/cupper"

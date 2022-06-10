@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <main id="main">
+    <h1>{{ .Title | markdownify }}</h1>
+    {{ .Content }}
+
+    {{ $haslinks := or (ne $.Page.Params.prev_relref "") (ne $.Page.Params.next_relref "")}}
+  
+  {{ if $haslinks }}
+  <div class="prev-next-links">
+    
+      {{ if ne $.Page.Params.next_relref ""}}
+      <p><button class="prev-next-link"><a  href="{{ relref . $.Page.Params.next_relref }}">Continue &rarr;</a></button></p>
+    {{ end }}
+
+  
+    {{ if ne $.Page.Params.prev_relref ""}}
+      <p><button class="prev-next-link-back"><a  href="{{ relref . $.Page.Params.prev_relref }}">&larr; Go back</a></button></p>
+    {{ end }}
+    
+  </div>
+  {{ end }}
+  </main>
+
+  
+{{ end }}

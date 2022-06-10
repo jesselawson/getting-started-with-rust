@@ -1,0 +1,18 @@
+<figure class="code-objectives-checkpoint objectives">
+  <figcaption>
+  	<span>In this chapter, we'll:</span>
+  </figcaption>
+  <div class="objectives-wrapper">
+      {{ $num := (.Get "chapter") }}
+      {{ range $.Page.Params.slos }}
+      
+      {{ if eq .number ($num) }}
+      <ul class="checkmark-lists">
+      {{ range .objectives }}
+      <li> {{ . }}</li>
+      {{ end }}
+      </ul>
+      {{ end }}
+      {{ end }}
+  </div>
+</figure>

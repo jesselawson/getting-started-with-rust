@@ -1,0 +1,53 @@
+{
+    "slos": {
+      "chapter-1": {
+        "number": "1",
+        "objectives": [
+          "Create a new Rust project on the command line without errors",
+          "Compile and build a simple \"Hello, World\" Rust project without errors"
+        ]
+      },
+      "chapter-2": {
+        "number": "2",
+        "objectives": [
+          "Create a function without errors",
+          "Create an integer variable without errors",
+          "Print an integer variable to the command line without errors"
+        ]
+      },
+      "chapter-3": {
+        "number": "3",
+        "objectives": [
+          "Create a string variable without errors",
+          "Return a string variable from a function without errors",
+          "Concatenate two strings without errors",
+          "Print a string to the command line without errors"
+        ]
+      },
+      "chapter-4": {
+        "number": "4",
+        "objectives": [
+          "Describe how a compiler works in general",
+          "Create a vector without errors",
+          "Read and parse command-line arguments without errors",
+          "Implement a match block without errors",
+          "Pass an argument to a function without errors"
+        ]
+      },
+      "chapter-5": {
+        "number": "5",
+        "objectives": [
+          "Open a file without errors",
+          "Read a file line-by-line without errors",
+          "Describe how a Markdown compiler works",
+          "Write to a file without errors"
+        ]
+      },
+      "chapter-6": {
+        "number": "6",
+        "objectives": [
+          "Build a release version of a project in Rust"
+        ]
+      }
+    }
+  }

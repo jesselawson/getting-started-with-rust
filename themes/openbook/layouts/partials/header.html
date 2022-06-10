@@ -1,0 +1,37 @@
+<header class="intro-and-nav" role="banner">
+  <div>
+    <div class="intro">
+      <a
+        class="logo"
+        href="{{ .Site.BaseURL }}"
+        aria-label="{{ .Site.Title }} home page"
+      >
+        {{ with .Site.Params.navTitleText }}
+          <img class="bookcover"
+          src="{{ "images/getting-started-with-rust-cover.jpeg" | relURL }}" 
+          alt="">
+
+          <h1 class="navtitletext">{{ . | markdownify }}</h1>
+          <h2 class="navsubtitletext">By <a href="https://jesselawson.org">Jesse Lawson</a></h2>
+        {{ else }}
+          
+            <img class="bookcover"
+            src="{{ "images/getting-started-with-rust-cover.jpeg" | relURL }}" 
+            alt=""
+          >
+        {{ end }}
+      </a>
+      
+        {{ if .Site.Params.showDescription }}
+        <p class="library-desc"></p>
+          {{ with .Site.Params.description }} {{ . | markdownify }} {{ end }}
+        </p>
+        {{ end }}
+      
+    </div>
+    {{ partial "nav.html" . }}
+    {{ if eq .Site.Params.moveFooterToHeader true }}
+      {{ partial "footer.html" . }}
+    {{ end }}
+  </div>
+</header>
