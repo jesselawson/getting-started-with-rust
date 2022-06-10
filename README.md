@@ -25,6 +25,12 @@ If you'd like to see what we'll be building, check out [the repo on Github](http
 
 # Contributing
 
-If you see something, please say something! 
+If you see something, please say something!
 
+This book is built with [Hugo](https://gohugo.io/). You can contribute 
+without installing Hugo, but if you want to test your changes locally,
+you'll need to run Hugo's dev server:
 
+```
+$ hugo server
+```
