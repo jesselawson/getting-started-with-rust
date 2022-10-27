@@ -1,5 +1,7 @@
 # Getting Started with Rust
 
+**[Read the book online (HTML)](https://jesselawson.github.io/getting-started-with-rust/)**
+
 Hi 👋 I'm Jesse, and this is a free online book for anyone who is curious about 
 the Rust programming language but doesn't know where to start. My teaching 
 philosophy is _"move slow and make things."_
