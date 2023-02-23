@@ -83,7 +83,7 @@ Hello, world!
 ```
 
 Note that we don't need to pass the name of the project; Rust will infer that
-for us, by executing the appropriate `.exe` file based on the release target.
+for us, by executing the appropriate binary based on the release target.
 
 If you see "Hello, world!" in your terminal, then congratulations: you have 
 built your first Rust program!
