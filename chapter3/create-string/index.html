@@ -9,8 +9,8 @@ make up the string are stored.</p><p>A <strong>string slice</strong>, on the oth
 Instead, it <em>borrows</em> whatever is at an address from a different owner. Think
 of a string slice as pointer or <strong>borrowed reference</strong> to a string owned by
 either a different variable or the application itself. For this
-reason, string slices are always immutable.</p><div class=expandable-section><h4><button aria-expanded=false data-expands=js-expandable-909f88721cd1fd152e293bffa7ae8451>
-<span class=expandable-label>More on Strings and String slices</span><svg aria-hidden="true" focusable="false" viewBox="0 0 70.866142 70.866141"><g transform="translate(0 -981.5)"><rect style="stroke-width:0;fill:currentColor" ry="5" height="60" width="9.8985" y="987.36" x="30.051" class="up-strut"/><rect style="stroke-width:0;fill:currentColor" ry="5" height="10" width="60" y="1012.4" x="5"/></g></svg></button></h4 class="expandable-header"><div id=js-expandable-909f88721cd1fd152e293bffa7ae8451 hidden><p>A string can change and a string slice cannot, so in general, use
+reason, string slices are always immutable.</p><div class=expandable-section><h4><button aria-expanded=false data-expands=js-expandable-8ffdc24158f217bea7201e3d9f89591a>
+<span class=expandable-label>More on Strings and String slices</span><svg aria-hidden="true" focusable="false" viewBox="0 0 70.866142 70.866141"><g transform="translate(0 -981.5)"><rect style="stroke-width:0;fill:currentColor" ry="5" height="60" width="9.8985" y="987.36" x="30.051" class="up-strut"/><rect style="stroke-width:0;fill:currentColor" ry="5" height="10" width="60" y="1012.4" x="5"/></g></svg></button></h4 class="expandable-header"><div id=js-expandable-8ffdc24158f217bea7201e3d9f89591a hidden><p>A string can change and a string slice cannot, so in general, use
 strings when you have values that might change and use string slices
 for values that won&rsquo;t.</p><p>For example, in our markdown compiler, we will be using <code>String</code> to hold the
 value of our compiled HTML until we&rsquo;re ready to write it to a file.

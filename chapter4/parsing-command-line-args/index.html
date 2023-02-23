@@ -51,13 +51,12 @@ explain, consider the following two pseudo statements:</p><div class=highlight><
 </span></span></code></pre></td></tr></table></div></div><p>In most other languages, the first statement means that the value of <code>left</code> is
 identical now to the value of <code>right</code>. In other words, if we try to access
 the value of <code>left</code> or <code>right</code> later on, both will be the same value. In Rust,
-however, <em>the right-hand expression is <strong>moved</strong> to the left,</em>, meaning that
-only the left-hand expression contains the value now.</p><p>If you want to keep the value in the right-hand expression while also creating
-a reference to it, you need to use the reference (<code>&</code>) operator. This seems like
-a daunting new idea at first, but the more you think about it, the more it makes
-sense. In fact, this one idea in Rust has helped me to be a better developer in
-every other language, since now I am purposefully thinking about what kind of
-mutability I want each variable I create to have.</p><p>So if we wanted to access the second element in the <code>args</code> vector (which is the
+however, the right-hand expression is <strong>moved</strong> to the left, which means
+only the left-hand expression contains the value now.</p><p>If you want to keep the value in the right-hand expression whiel also capturing
+it elsewhere, you need to use the reference (<code>&</code>) operator. The second example
+in the snippet above (<code>left = &amp;right;</code>) is how you would borrow <code>right</code>&rsquo;s value
+to create the value for <code>left</code>. The way you borrow the value is by creating a
+reference to it.</p><p>So if we wanted to access the second element in the <code>args</code> vector (which is the
 name of the Markdown file we are supposed to be passing), we would use <code>&args[1]</code>
 and not <code>args[1]</code>, since the former will provide a reference to the data and the
 latter will trigger a <em>move</em> of that value&ndash;which we do not want.</p><p>Let&rsquo;s go ahead and collect up the arguments in our program. Go to your <code>main()</code>
