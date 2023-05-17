@@ -28,15 +28,15 @@ and a short description of our tool:</p><div class=highlight><div class=chroma><
 so.</p><p>Compile and run your project with <code>cargo run -q</code>, which will always automatically
 detect changes in your source files and rebuild your project if needed:</p><pre tabindex=0><code>$ cargo run -q
 Hello, world!
-</code></pre><div class=expandable-section><h4><button aria-expanded=false data-expands=js-expandable-5fa97456f757e69669b0e2033a50a063>
-<span class=expandable-label>What was -q for again?</span><svg aria-hidden="true" focusable="false" viewBox="0 0 70.866142 70.866141"><g transform="translate(0 -981.5)"><rect style="stroke-width:0;fill:currentColor" ry="5" height="60" width="9.8985" y="987.36" x="30.051" class="up-strut"/><rect style="stroke-width:0;fill:currentColor" ry="5" height="10" width="60" y="1012.4" x="5"/></g></svg></button></h4 class="expandable-header"><div id=js-expandable-5fa97456f757e69669b0e2033a50a063 hidden><p>The <code>-q</code> flag in <code>cargo run -q</code> invokes &ldquo;quiet&rdquo; mode.</p><p>Here&rsquo;s without:</p><pre tabindex=0><code> $ cargo run
+</code></pre><div class=expandable-section><h4><button aria-expanded=false data-expands=js-expandable-53f6a769af55956ab30e2094307e6607>
+<span class=expandable-label>What was -q for again?</span><svg aria-hidden="true" focusable="false" viewBox="0 0 70.866142 70.866141"><g transform="translate(0 -981.5)"><rect style="stroke-width:0;fill:currentColor" ry="5" height="60" width="9.8985" y="987.36" x="30.051" class="up-strut"/><rect style="stroke-width:0;fill:currentColor" ry="5" height="10" width="60" y="1012.4" x="5"/></g></svg></button></h4 class="expandable-header"><div id=js-expandable-53f6a769af55956ab30e2094307e6607 hidden><p>The <code>-q</code> flag in <code>cargo run -q</code> invokes &ldquo;quiet&rdquo; mode.</p><p>Here&rsquo;s without:</p><pre tabindex=0><code> $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.00s
       Running `target\debug\tinymd.exe`
   Hello, world!
 </code></pre><p>Here&rsquo;s with:</p><pre tabindex=0><code>$ cargo run
 Hello, world!
-</code></pre></div></div><div class=expandable-section><h4><button aria-expanded=false data-expands=js-expandable-28ae850729c8d70cbd215620cd476410>
-<span class=expandable-label>What if I see a `warning: function is never used` message?</span><svg aria-hidden="true" focusable="false" viewBox="0 0 70.866142 70.866141"><g transform="translate(0 -981.5)"><rect style="stroke-width:0;fill:currentColor" ry="5" height="60" width="9.8985" y="987.36" x="30.051" class="up-strut"/><rect style="stroke-width:0;fill:currentColor" ry="5" height="10" width="60" y="1012.4" x="5"/></g></svg></button></h4 class="expandable-header"><div id=js-expandable-28ae850729c8d70cbd215620cd476410 hidden><p>If you run the code above, you&rsquo;ll likely see a warning that looks like this:</p><pre tabindex=0><code>warning: function is never used: `usage`
+</code></pre></div></div><div class=expandable-section><h4><button aria-expanded=false data-expands=js-expandable-50d04cd8b51d10c7729ea804627282c6>
+<span class=expandable-label>What if I see a `warning: function is never used` message?</span><svg aria-hidden="true" focusable="false" viewBox="0 0 70.866142 70.866141"><g transform="translate(0 -981.5)"><rect style="stroke-width:0;fill:currentColor" ry="5" height="60" width="9.8985" y="987.36" x="30.051" class="up-strut"/><rect style="stroke-width:0;fill:currentColor" ry="5" height="10" width="60" y="1012.4" x="5"/></g></svg></button></h4 class="expandable-header"><div id=js-expandable-50d04cd8b51d10c7729ea804627282c6 hidden><p>If you run the code above, you&rsquo;ll likely see a warning that looks like this:</p><pre tabindex=0><code>warning: function is never used: `usage`
  --&gt; src/main.rs:1:4
   |
 1 | fn usage() {
