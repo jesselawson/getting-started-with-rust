@@ -1,6 +1,6 @@
 baseURL = 'https://jesselawson.github.io/getting-started-with-rust'
 languageCode = 'en-us'
-title = 'Getting Started with Rust'
+title = 'Getting Started with Programming in Rust'
 
 theme = "openbook"
 enableGitInfo = true
@@ -46,10 +46,10 @@ weight = 7
 [params]
     description = "Dive head-first into Rust from scratch, learning the basics by building a markdown compiler."
     homeMetaContent = "A beginner-friendly, free, online book about the Rust programming language."
-    footer = "Copyright &copy; 2022  Lawson. All rights reserved."
+    footer = "Copyright &copy; 2022 Jesse Lawson. All rights reserved."
     showThemeSwitcher = false
-    navTitleText = "Getting Started with Rust"
-    logoAlt = "Getting Started with Rust online book"
+    navTitleText = "Getting Started with Programming in Rust"
+    logoAlt = "Getting Started with Programming in Rust online book"
     githubRepoBaseUrl = "https://github.com/jesselawson/getting-started-with-rust/"
     
 
