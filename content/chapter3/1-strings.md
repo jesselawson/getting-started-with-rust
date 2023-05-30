@@ -21,7 +21,7 @@ elements into and out of it, and it is automatically freed when it goes out
 of scope. In Rust, a string is the **owner** of the memory where the bytes that 
 make up the string are stored. 
 
-A **string slice**, on the other hgand, does not own any buffers in memory. 
+A **string slice**, on the other hand, does not own any buffers in memory. 
 Instead, it *borrows* whatever is at an address from a different owner. Think 
 of a string slice as pointer or **borrowed reference** to a string owned by 
 either a different variable or the application itself. For this 

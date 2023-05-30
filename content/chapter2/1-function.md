@@ -18,7 +18,7 @@ fn main() {
 ```
 
 Above our `main()` function, let's create a new function called `usage()`. 
-Inside it, we'll use the same  used to write `"Hello, world!"` to output the name
+Inside it, we'll use the same macro used to write `"Hello, world!"` to output the name
 and a short description of our tool:
 
 ```rust

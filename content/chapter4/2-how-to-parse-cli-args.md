@@ -86,15 +86,14 @@ explain, consider the following two pseudo statements:
 In most other languages, the first statement means that the value of `left` is 
 identical now to the value of `right`. In other words, if we try to access 
 the value of `left` or `right` later on, both will be the same value. In Rust, 
-however, *the right-hand expression is **moved** to the left,*, meaning that 
+however, the right-hand expression is **moved** to the left, which means 
 only the left-hand expression contains the value now. 
 
-If you want to keep the value in the right-hand expression while also creating 
-a reference to it, you need to use the reference (`&`) operator. This seems like 
-a daunting new idea at first, but the more you think about it, the more it makes 
-sense. In fact, this one idea in Rust has helped me to be a better developer in 
-every other language, since now I am purposefully thinking about what kind of 
-mutability I want each variable I create to have. 
+If you want to keep the value in the right-hand expression whiel also capturing
+it elsewhere, you need to use the reference (`&`) operator. The second example 
+in the snippet above (`left = &right;`) is how you would borrow `right`'s value 
+to create the value for `left`. The way you borrow the value is by creating a 
+reference to it.
 
 So if we wanted to access the second element in the `args` vector (which is the 
 name of the Markdown file we are supposed to be passing), we would use `&args[1]` 
