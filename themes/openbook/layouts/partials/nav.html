@@ -21,7 +21,7 @@
       {{ $active = or $active (and (eq .Name "4: Compiler logic") (eq $current.Section "chapter4")) }}
       {{ $active = or $active (and (eq .Name "5: Reading & writing files") (eq $current.Section "chapter5")) }}
       {{ $active = or $active (and (eq .Name "6: Release build") (eq $current.Section "chapter6")) }}
-      <a href="{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
+      <a href="{{ if eq hugo.Environment "production" }}{{ site.BaseURL }}{{end}}{{ .URL }}" {{ if $active }}aria-current="page"{{ end }}>
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
