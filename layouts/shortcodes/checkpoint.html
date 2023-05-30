@@ -24,8 +24,7 @@
       {{ $num := strings.TrimLeft "chapter-" $module }}
       {{ $module_link := printf "%s%s" "chapter" $num }}
 
-      {{ range $.Page.Params.slos }}
-      
+      {{ range $.Site.Data.slos }}
       {{ if eq .number ($num) }}
       <ul class="checkmark-lists">
       {{ range .objectives }}

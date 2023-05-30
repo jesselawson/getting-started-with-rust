@@ -1,0 +1,9 @@
+{
+    "number": "3",
+        "objectives": [
+          "Create a string variable without errors",
+          "Return a string variable from a function without errors",
+          "Concatenate two strings without errors",
+          "Print a string to the command line without errors"
+        ]
+}

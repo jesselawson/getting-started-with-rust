@@ -1,0 +1,7 @@
+{
+    "number": 1,
+    "objectives": [
+        "Create a new Rust project on the command line without errors",
+        "Compile and build a simple \"Hello, World\" Rust project without errors"
+    ]
+}

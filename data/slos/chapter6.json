@@ -1,0 +1,8 @@
+{
+    "chapter-6": {
+        "number": "6",
+        "objectives": [
+          "Build a release version of a project in Rust"
+        ]
+      }
+}

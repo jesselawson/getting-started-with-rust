@@ -1,0 +1,8 @@
+{
+    "number": "2",
+        "objectives": [
+          "Create a function without errors",
+          "Create an integer variable without errors",
+          "Print an integer variable to the command line without errors"
+        ]
+}
