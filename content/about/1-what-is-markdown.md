@@ -7,7 +7,7 @@ prev_relref: "about/_index.md"
 next_relref: "chapter1/_index.md"
 ---
 
-_If you're already familiar with Markdown, feel free to [skip ahead](getting-started-with-rust/chapter1)._
+_If you're already familiar with Markdown, feel free to [skip ahead](/getting-started-with-rust/chapter1)._
 
 Markdown is a minimalistic language for writing HTML content very quickly. It 
 gives us the ability to write text-based documents that are legible and small, 
